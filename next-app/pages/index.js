@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -11,7 +11,10 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div>
-        <Button colorScheme='blue'>Button</Button>
+        <Text color='white'>
+          Hello, I'm Zwe Min Soe. A 3rd-year university student and an aspiring
+          full-stack developer.
+        </Text>
       </div>
     </div>
   );
