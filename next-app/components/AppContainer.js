@@ -1,13 +1,15 @@
-import { Box } from "@chakra-ui/react";
+import { VStack, Flex } from "@chakra-ui/react";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Contacts from "./Contacts";
 
 export default function AppContainer({ children, ...props }) {
   return (
-    <Box bg='bg'>
-      <Navbar />
-      {children}
-      <Footer />
-    </Box>
+    <>
+      <VStack bg='dark'>
+        <Navbar />
+        {children}
+        <Contacts />
+      </VStack>
+    </>
   );
 }
