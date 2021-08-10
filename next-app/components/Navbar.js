@@ -7,26 +7,21 @@ import {
   MenuItem,
   MenuList,
   MenuButton,
-  Portal,
   Icon,
 } from "@chakra-ui/react";
 import { HiMenu } from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
 import nameLogo from "../public/assets/name.svg";
-import useDeviceDetect from "../hooks/useDeviceDetect";
+import useScreenWidth from "../hooks/useScreenWidth";
+import { CustomLink } from "../styles/components";
 
 export default function Navbar() {
-  const { isMobile } = useDeviceDetect();
+  const { isLargeScreen } = useScreenWidth();
 
   return (
     <>
-      <Flex
-        h={16}
-        alignItems={"center"}
-        justifyContent={"space-around"}
-        w='100%'
-      >
+      <Flex alignItems={"center"} justifyContent={"space-around"} w='100%'>
         <Flex alignItems={"center"}>
           <Link href='/'>
             <a>
@@ -40,7 +35,7 @@ export default function Navbar() {
             </a>
           </Link>
         </Flex>
-        {isMobile() ? <MobileNav /> : <DesktopNav />}
+        {isLargeScreen ? <DesktopNav /> : <MobileNav />}
       </Flex>
     </>
   );
@@ -51,32 +46,32 @@ const DesktopNav = () => {
     <HStack spacing={8} alignItems={"center"}>
       <HStack as='nav' spacing={10} display={{ base: "none", md: "flex" }}>
         <Link href='/blog'>
-          <a style={{ color: "white" }}>
+          <CustomLink color='white' underline>
             <Heading size='md' fontWeight='normal'>
               Blog
             </Heading>
-          </a>
+          </CustomLink>
         </Link>
         <Link href='/#about'>
-          <a style={{ color: "white" }}>
+          <CustomLink color='white' underline>
             <Heading size='md' fontWeight='normal'>
               About Me
             </Heading>
-          </a>
+          </CustomLink>
         </Link>
         <Link href='/#progress'>
-          <a style={{ color: "white" }}>
+          <CustomLink color='white' underline>
             <Heading size='md' fontWeight='normal'>
               Experience
             </Heading>
-          </a>
+          </CustomLink>
         </Link>
         <Link href='/#contacts'>
-          <a style={{ color: "white" }}>
+          <CustomLink color='white' underline>
             <Heading size='md' fontWeight='normal'>
               Resume
             </Heading>
-          </a>
+          </CustomLink>
         </Link>
       </HStack>
     </HStack>
@@ -95,38 +90,38 @@ const MobileNav = () => {
       <MenuList>
         <MenuItem>
           <Link href='/blog'>
-            <a style={{ color: "black" }}>
+            <CustomLink color='black'>
               <Heading size='xs' fontWeight='normal'>
                 Blog
               </Heading>
-            </a>
+            </CustomLink>
           </Link>
         </MenuItem>
         <MenuItem>
           <Link href='/#about'>
-            <a style={{ color: "black" }}>
+            <CustomLink color='black'>
               <Heading size='xs' fontWeight='normal'>
                 About Me
               </Heading>
-            </a>
+            </CustomLink>
           </Link>
         </MenuItem>
         <MenuItem>
           <Link href='/#progress'>
-            <a style={{ color: "black" }}>
+            <CustomLink color='black'>
               <Heading size='xs' fontWeight='normal'>
                 Experience
               </Heading>
-            </a>
+            </CustomLink>
           </Link>
         </MenuItem>
         <MenuItem>
           <Link href='/#contacts'>
-            <a style={{ color: "black" }}>
+            <CustomLink color='black'>
               <Heading size='xs' fontWeight='normal'>
                 Resume
               </Heading>
-            </a>
+            </CustomLink>
           </Link>
         </MenuItem>
       </MenuList>
