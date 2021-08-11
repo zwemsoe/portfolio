@@ -1,7 +1,7 @@
 import { Flex, VStack, HStack, IconButton, Icon, Link } from "@chakra-ui/react";
 import { FaGithub, FaTwitter, FaLinkedin, FaChessPawn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import useScreenWidth from "../hooks/useScreenWidth";
+import useScreenWidth from "../utils/hooks/useScreenWidth";
 
 const contacts = [
   {
@@ -34,7 +34,7 @@ const contacts = [
 export default function Contacts() {
   const { isLargeScreen } = useScreenWidth();
   const mobileIconSize = { width: "1.5em", height: "1.5em" };
-  const desktopIconSize = { width: "2em", height: "2em" };
+  const desktopIconSize = { width: "1.8em", height: "1.8em" };
   const iconSize = isLargeScreen ? desktopIconSize : mobileIconSize;
   return (
     <>
@@ -75,7 +75,7 @@ const DesktopView = ({ iconSize }) => {
 const MobileView = ({ iconSize }) => {
   return (
     <Flex py={5} id='contacts' align='center' justify='center'>
-      <HStack spacing='50px'>
+      <HStack spacing='20px'>
         {contacts.map((item) => (
           <Link key={item.label} href={item.link} isExternal>
             <IconButton
