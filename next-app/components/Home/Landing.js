@@ -40,7 +40,7 @@ export default function Landing() {
         onClick={() => {
           dispatch({
             type: SET_PAGE,
-            page: 4,
+            page: 3,
           });
         }}
       >

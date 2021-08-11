@@ -15,7 +15,7 @@ export default function ScrollProgress() {
       w='50px'
     >
       <VStack>
-        {[...Array(5).keys()].map((item) => (
+        {[...Array(4).keys()].map((item) => (
           <Icon
             key={item}
             as={FaCircle}

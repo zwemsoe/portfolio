@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import { Button, Text } from "@chakra-ui/react";
+import { Button, Heading, Box, Center } from "@chakra-ui/react";
 
 export default function Blog() {
   return (
@@ -10,12 +10,22 @@ export default function Blog() {
         <meta name='description' content="Zwe Min Soe's Blog" />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div>
-        <Text color='gray.500'>
-          Lorem ipsum is placeholder text commonly used in the graphic, print,
-          and publishing industries for previewing layouts and visual mockups.
-        </Text>
-      </div>
+      <Box>
+        <Center>
+          <Heading size='xl' fontWeight='normal' color='white'>
+            Working on it...
+          </Heading>
+        </Center>
+        <br />
+        <iframe
+          src='https://giphy.com/embed/pOZhmE42D1WrCWATLK'
+          width='400'
+          height='400'
+          frameBorder='0'
+          className='giphy-embed'
+          allowFullScreen
+        ></iframe>
+      </Box>
     </div>
   );
 }

@@ -4,7 +4,13 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import styles from "../styles/Home.module.css";
 import { useStateContext } from "../utils/provider";
 import { SET_PAGE } from "../utils/actions";
-import { ScrollProgress, Landing } from "../components/Home";
+import {
+  ScrollProgress,
+  Landing,
+  About,
+  Dev,
+  ContactMe,
+} from "../components/Home";
 import useScreenWidth from "../utils/hooks/useScreenWidth";
 
 export default function Home() {
@@ -30,8 +36,9 @@ export default function Home() {
         style={{
           width: "80vw",
           height: "80vh",
-          "overflow-y": "hidden",
+          overflowY: "hidden",
         }}
+        enabled={false}
       >
         <ParallaxLayer
           offset={0}
@@ -56,16 +63,7 @@ export default function Home() {
             color: "white",
           }}
         >
-          <span
-            onClick={() => {
-              dispatch({
-                type: SET_PAGE,
-                page: 2,
-              });
-            }}
-          >
-            <p>About Me</p>
-          </span>
+          <About />
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -78,16 +76,7 @@ export default function Home() {
             color: "white",
           }}
         >
-          <span
-            onClick={() => {
-              dispatch({
-                type: SET_PAGE,
-                page: 3,
-              });
-            }}
-          >
-            <p>Experience</p>
-          </span>
+          <Dev />
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -100,38 +89,7 @@ export default function Home() {
             color: "white",
           }}
         >
-          <span
-            onClick={() => {
-              dispatch({
-                type: SET_PAGE,
-                page: 4,
-              });
-            }}
-          >
-            <p>Skills</p>
-          </span>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={4}
-          speed={3}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-          }}
-        >
-          <span
-            onClick={() => {
-              dispatch({
-                type: SET_PAGE,
-                page: 0,
-              });
-            }}
-          >
-            <p>Get in touch!</p>
-          </span>
+          <ContactMe />
         </ParallaxLayer>
       </Parallax>
     </div>

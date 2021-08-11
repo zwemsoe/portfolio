@@ -95,7 +95,7 @@ const DesktopNav = () => {
             }
           >
             <Heading size='md' fontWeight='normal'>
-              Experience
+              Dev
             </Heading>
           </CustomLink>
         </Link>
@@ -116,6 +116,7 @@ const DesktopNav = () => {
 };
 
 const MobileNav = () => {
+  const [{ page }, dispatch] = useStateContext();
   return (
     <Menu>
       <MenuButton
@@ -167,7 +168,7 @@ const MobileNav = () => {
               }
             >
               <Heading size='xs' fontWeight='normal'>
-                Experience
+                Dev
               </Heading>
             </CustomLink>
           </Link>
