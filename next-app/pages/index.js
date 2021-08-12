@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Zwe's Portfolio</title>
+        <title>Home</title>
         <meta name='description' content="Zwe Min Soe's Portfolio" />
       </Head>
       {isLargeScreen && <ScrollProgress />}

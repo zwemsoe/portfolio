@@ -8,7 +8,6 @@ export default function Blog() {
       <Head>
         <title>Blog</title>
         <meta name='description' content="Zwe Min Soe's Blog" />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box>
         <Center>
