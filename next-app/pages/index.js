@@ -32,7 +32,7 @@ export default function Home() {
 
       <Parallax
         ref={parallaxRef}
-        pages={5}
+        pages={4}
         style={{
           width: "80vw",
           height: "80vh",
