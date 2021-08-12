@@ -21,7 +21,6 @@ export default function Blog() {
           width="300"
           height="300"
           frameBorder="0"
-          className="giphy-embed"
           allowFullScreen
         ></iframe>
       </Box>

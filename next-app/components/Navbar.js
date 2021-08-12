@@ -19,6 +19,9 @@ import { CustomLink } from '../styles/components';
 import { useStateContext } from '../utils/provider';
 import { SET_PAGE } from '../utils/actions';
 
+const RESUME_LINK =
+  'https://drive.google.com/file/d/1nZAXFMMI1c1U2UtzI_dbeoewk4HBvmqI/view';
+
 export default function Navbar() {
   const { isLargeScreen } = useScreenWidth();
   const [{ page }, dispatch] = useStateContext();
@@ -100,12 +103,7 @@ const DesktopNav = () => {
           </CustomLink>
         </Link>
 
-        <CustomLink
-          href="https://drive.google.com/file/d/1RR6guwXSVYFPDXjrHtCg9pMiTbkcy9RW/view?usp=sharing"
-          color="white"
-          underline
-          target="_blank"
-        >
+        <CustomLink href={RESUME_LINK} color="white" underline target="_blank">
           <Heading size="md" fontWeight="normal">
             Resume
           </Heading>
@@ -172,11 +170,7 @@ const MobileNav = () => {
           </CustomLink>
         </Link>
 
-        <CustomLink
-          href="https://drive.google.com/file/d/1RR6guwXSVYFPDXjrHtCg9pMiTbkcy9RW/view?usp=sharing"
-          color="black"
-          target="_blank"
-        >
+        <CustomLink href={RESUME_LINK} color="black" target="_blank">
           <MenuItem>
             <Heading size="xs" fontWeight="normal">
               Resume
