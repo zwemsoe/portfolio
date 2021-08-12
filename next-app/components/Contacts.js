@@ -1,40 +1,40 @@
-import { Flex, VStack, HStack, IconButton, Icon, Link } from "@chakra-ui/react";
-import { FaGithub, FaTwitter, FaLinkedin, FaChessPawn } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import useScreenWidth from "../utils/hooks/useScreenWidth";
+import { Flex, VStack, HStack, IconButton, Icon, Link } from '@chakra-ui/react';
+import { FaGithub, FaTwitter, FaLinkedin, FaChessPawn } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import useScreenWidth from '../utils/hooks/useScreenWidth';
 
 const contacts = [
   {
-    label: "Github",
+    label: 'Github',
     icon: FaGithub,
-    link: "https://github.com/zwemsoe",
+    link: 'https://github.com/zwemsoe',
   },
   {
-    label: "LinkedIn",
+    label: 'LinkedIn',
     icon: FaLinkedin,
-    link: "https://www.linkedin.com/in/zwe-min-soe-0b15091a8",
+    link: 'https://www.linkedin.com/in/zwe-min-soe-0b15091a8',
   },
   {
-    label: "Email",
+    label: 'Email',
     icon: MdEmail,
-    link: "mailto: zwemsoe@gmail.com",
+    link: 'mailto: zwemsoe@gmail.com',
   },
   {
-    label: "Twitter",
+    label: 'Twitter',
     icon: FaTwitter,
-    link: "https://twitter.com/zweminsoe",
+    link: 'https://twitter.com/zweminsoe',
   },
   {
-    label: "Chess.com",
+    label: 'Chess.com',
     icon: FaChessPawn,
-    link: "https://www.chess.com/member/zsoe",
+    link: 'https://www.chess.com/member/zsoe',
   },
 ];
 
 export default function Contacts() {
   const { isLargeScreen } = useScreenWidth();
-  const mobileIconSize = { width: "1.5em", height: "1.5em" };
-  const desktopIconSize = { width: "1.8em", height: "1.8em" };
+  const mobileIconSize = { width: '1.5em', height: '1.5em' };
+  const desktopIconSize = { width: '1.8em', height: '1.8em' };
   const iconSize = isLargeScreen ? desktopIconSize : mobileIconSize;
   return (
     <>
@@ -51,19 +51,19 @@ const DesktopView = ({ iconSize }) => {
   return (
     <Flex
       sx={{
-        position: "fixed",
+        position: 'fixed',
         bottom: 10,
         right: 5,
       }}
       w={50}
     >
-      <VStack spacing={"20px"}>
+      <VStack spacing={'20px'}>
         {contacts.map((item) => (
           <Link key={item.label} href={item.link} isExternal>
             <IconButton
-              colorScheme='none'
+              colorScheme="none"
               aria-label={item.label}
-              icon={<Icon as={item.icon} style={iconSize} color='white' />}
+              icon={<Icon as={item.icon} style={iconSize} color="white" />}
             />
           </Link>
         ))}
@@ -74,14 +74,14 @@ const DesktopView = ({ iconSize }) => {
 
 const MobileView = ({ iconSize }) => {
   return (
-    <Flex py={5} id='contacts' align='center' justify='center'>
-      <HStack spacing='20px'>
+    <Flex py={5} id="contacts" align="center" justify="center">
+      <HStack spacing="20px">
         {contacts.map((item) => (
           <Link key={item.label} href={item.link} isExternal>
             <IconButton
-              colorScheme='none'
+              colorScheme="none"
               aria-label={item.label}
-              icon={<Icon as={item.icon} style={iconSize} color='white' />}
+              icon={<Icon as={item.icon} style={iconSize} color="white" />}
             />
           </Link>
         ))}

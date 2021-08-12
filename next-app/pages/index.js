@@ -1,17 +1,16 @@
-import { useRef, useEffect } from "react";
-import Head from "next/head";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import styles from "../styles/Home.module.css";
-import { useStateContext } from "../utils/provider";
-import { SET_PAGE } from "../utils/actions";
+import { useRef, useEffect } from 'react';
+import Head from 'next/head';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import styles from '../styles/Home.module.css';
+import { useStateContext } from '../utils/provider';
 import {
   ScrollProgress,
   Landing,
   About,
   Dev,
   ContactMe,
-} from "../components/Home";
-import useScreenWidth from "../utils/hooks/useScreenWidth";
+} from '../components/Home';
+import useScreenWidth from '../utils/hooks/useScreenWidth';
 
 export default function Home() {
   const parallaxRef = useRef();
@@ -26,7 +25,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Home</title>
-        <meta name='description' content="Zwe Min Soe's Portfolio" />
+        <meta name="description" content="Zwe Min Soe's Portfolio" />
       </Head>
       {isLargeScreen && <ScrollProgress />}
 
@@ -34,20 +33,20 @@ export default function Home() {
         ref={parallaxRef}
         pages={4}
         style={{
-          width: "80vw",
-          height: "80vh",
-          overflowY: "hidden",
+          width: '80vw',
+          height: '80vh',
+          overflowY: 'hidden',
         }}
         enabled={false}
       >
         <ParallaxLayer
           offset={0}
-          speed={2}
+          speed={2.5}
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
           }}
         >
           <Landing />
@@ -55,12 +54,12 @@ export default function Home() {
 
         <ParallaxLayer
           offset={1}
-          speed={2}
+          speed={2.5}
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
           }}
         >
           <About />
@@ -68,12 +67,12 @@ export default function Home() {
 
         <ParallaxLayer
           offset={2}
-          speed={3}
+          speed={2.5}
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
           }}
         >
           <Dev />
@@ -81,12 +80,12 @@ export default function Home() {
 
         <ParallaxLayer
           offset={3}
-          speed={3}
+          speed={2.5}
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
           }}
         >
           <ContactMe />

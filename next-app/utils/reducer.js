@@ -1,4 +1,4 @@
-import { SET_PAGE } from "./actions";
+import { SET_PAGE } from './actions';
 
 export const initialState = {
   page: 0,

@@ -1,15 +1,6 @@
-import {
-  Button,
-  Text,
-  VStack,
-  Flex,
-  Icon,
-  Heading,
-  Stack,
-  Spacer,
-} from "@chakra-ui/react";
-import { useStateContext } from "../../utils/provider";
-import { SET_PAGE } from "../../utils/actions";
+import { Button, Heading, Stack } from '@chakra-ui/react';
+import { useStateContext } from '../../utils/provider';
+import { SET_PAGE } from '../../utils/actions';
 
 export default function Landing() {
   const [{ page }, dispatch] = useStateContext();
@@ -23,20 +14,20 @@ export default function Landing() {
           });
         }}
       >
-        <Heading size='2xl' fontWeight='bold'>
-          Hi, I'm Zwe Min Soe.
+        <Heading size="2xl" fontWeight="bold">
+          {"Hi, I'm Zwe Min Soe."}
         </Heading>
 
-        <Heading size='xl' fontWeight='normal'>
+        <Heading size="xl" fontWeight="normal">
           Aspiring Full-Stack Developer. Curious Learner. Avid Chess Player.
         </Heading>
       </span>
       <br />
       <Button
-        borderColor='yellow'
-        variant='outline'
-        w='150px'
-        _hover={{ bg: "gray" }}
+        borderColor="yellow"
+        variant="outline"
+        w="150px"
+        _hover={{ bg: 'gray' }}
         onClick={() => {
           dispatch({
             type: SET_PAGE,
@@ -44,7 +35,7 @@ export default function Landing() {
           });
         }}
       >
-        <Heading size='sm' fontWeight='bold' color='yellow'>
+        <Heading size="sm" fontWeight="bold" color="yellow">
           GET IN TOUCH!
         </Heading>
       </Button>

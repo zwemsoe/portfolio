@@ -1,9 +1,9 @@
-import "../styles/globals.css";
-import { ChakraProvider, Box } from "@chakra-ui/react";
-import theme from "../styles/theme";
-import AppContainer from "../components/AppContainer";
-import { StateProvider } from "../utils/provider";
-import { initialState, stateReducer } from "../utils/reducer";
+import '../styles/globals.css';
+import { ChakraProvider, Box } from '@chakra-ui/react';
+import theme from '../styles/theme';
+import AppContainer from '../components/AppContainer';
+import { StateProvider } from '../utils/provider';
+import { initialState, stateReducer } from '../utils/reducer';
 
 function App({ Component, pageProps }) {
   return (

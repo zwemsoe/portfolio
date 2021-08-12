@@ -9,42 +9,42 @@ import {
   Spacer,
   HStack,
   Center,
-} from "@chakra-ui/react";
-import { useStateContext } from "../../utils/provider";
-import { SET_PAGE } from "../../utils/actions";
-import DevTimeline from "./DevTimeline";
-import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import useScreenWidth from "../../utils/hooks/useScreenWidth";
+} from '@chakra-ui/react';
+import { useStateContext } from '../../utils/provider';
+import { SET_PAGE } from '../../utils/actions';
+import DevTimeline from './DevTimeline';
+import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
+import { DiMongodb } from 'react-icons/di';
+import useScreenWidth from '../../utils/hooks/useScreenWidth';
 
 const skills = [
   {
-    label: "ReactJS",
+    label: 'ReactJS',
     icon: FaReact,
-    color: "#88FFF7",
+    color: '#88FFF7',
   },
   {
-    label: "NodeJS",
+    label: 'NodeJS',
     icon: FaNodeJs,
-    color: "green",
+    color: 'green',
   },
   {
-    label: "MongoDB",
+    label: 'MongoDB',
     icon: DiMongodb,
-    color: "green",
+    color: 'green',
   },
   {
-    label: "Python",
+    label: 'Python',
     icon: FaPython,
-    color: "yellow",
+    color: 'yellow',
   },
 ];
 
 export default function Dev() {
   const [{ page }, dispatch] = useStateContext();
   const { isLargeScreen } = useScreenWidth();
-  const mobileIconSize = { width: "2em", height: "2em" };
-  const desktopIconSize = { width: "3em", height: "3em" };
+  const mobileIconSize = { width: '2em', height: '2em' };
+  const desktopIconSize = { width: '3em', height: '3em' };
   const iconSize = isLargeScreen ? desktopIconSize : mobileIconSize;
   return (
     <span
@@ -57,7 +57,7 @@ export default function Dev() {
     >
       <Stack>
         <Center>
-          <Heading size='lg' fontWeight='bold' color='white'>
+          <Heading size="lg" fontWeight="bold" color="white">
             Dev Timeline
           </Heading>
         </Center>
@@ -65,7 +65,7 @@ export default function Dev() {
         <DevTimeline />
         <br />
         <Center>
-          <Heading size='lg' fontWeight='bold' color='white'>
+          <Heading size="lg" fontWeight="bold" color="white">
             Top Skills
           </Heading>
         </Center>
