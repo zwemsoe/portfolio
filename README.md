@@ -1,3 +1,3 @@
 # Porfolio/Blog Website
 
-[a link](https://www.zweminsoe.com)
+[https://www.zweminsoe.com](https://www.zweminsoe.com)
