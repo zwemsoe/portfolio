@@ -1,4 +1,4 @@
-import { Text, Heading, Stack, HStack } from '@chakra-ui/react';
+import { Text, Heading, Stack, HStack, Link } from '@chakra-ui/react';
 import Image from 'next/image';
 import { useStateContext } from '../../utils/provider';
 import { SET_PAGE } from '../../utils/actions';
@@ -34,8 +34,19 @@ export default function About() {
             I'm currently in Vancouver, Canada. I'm a 3rd-year computer science
             student at Simon Fraser University. I have over a year experience of
             working with ReactJS and NodeJS stacks. I'm working as a Lead
-            Software Engineer at BridgeBurma and a Full-Stack developer at BYO.
-            My interests include software development, clean-code, automation,
+            Software Engineer at{' '}
+            <Link
+              color="teal.200"
+              href="https://www.bridgeburma.com/"
+              isExternal
+            >
+              BridgeBurma
+            </Link>{' '}
+            and a Full-Stack developer at{' '}
+            <Link color="teal.200" href="https://letsbyo.com/" isExternal>
+              BYO
+            </Link>{' '}
+            . My interests include software development, clean-code, automation,
             and chess.
           </Text>
         </Stack>

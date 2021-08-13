@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../../styles/Blog.module.css';
-import { Button, Heading, Box, Center } from '@chakra-ui/react';
+import { Heading, Box, Center } from '@chakra-ui/react';
 
 export default function Blog() {
   return (
@@ -21,7 +21,6 @@ export default function Blog() {
           width="300"
           height="300"
           frameBorder="0"
-          className="giphy-embed"
           allowFullScreen
         ></iframe>
       </Box>

@@ -15,6 +15,7 @@ const theme = extendTheme({
     yellow: '#FBD802',
     light: '#FFFFFF',
     dark: '#181718',
+    red: '#FF4848',
   },
   breakpoints,
   fonts: {

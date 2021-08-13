@@ -8,18 +8,57 @@ import {
   Center,
   Heading,
   Icon,
+  Text,
   IconButton,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { useStateContext } from '../../utils/provider';
 import { SET_PAGE } from '../../utils/actions';
+import fetchAPI from '../../utils/fetchAPI';
+
+// From: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+function validateEmail(email) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 
 export default function About() {
   const [{ page }, dispatch] = useStateContext();
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [isSubmitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    if (name && email && subject && message) {
+      if (validateEmail(email)) {
+        const { success } = await fetchAPI({
+          method: 'POST',
+          data: { name, email, subject, message },
+          endpoint: '/api/add-contact',
+        });
+        if (success) {
+          setError('');
+          setEmail('');
+          setName('');
+          setSubject('');
+          setMessage('');
+        } else {
+          setError('Something went wrong.');
+        }
+      } else {
+        setError('Invalid email.');
+      }
+    } else {
+      setError('Please fill all required fields.');
+    }
+    setSubmitting(false);
+  };
 
   return (
     <>
@@ -30,18 +69,40 @@ export default function About() {
           </Heading>
         </Center>
         <br />
+        <Center>
+          <Text fontSize="md" fontWeight="normal" color="red">
+            {error}
+          </Text>
+        </Center>
+        <br />
+        <FormControl id="name" isRequired>
+          <FormLabel>Name</FormLabel>
+          <Input
+            type="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </FormControl>
         <FormControl id="email" isRequired>
           <FormLabel>Email address</FormLabel>
-          <Input type="email" onChange={(e) => setEmail(e.target.value)} />
+          <Input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </FormControl>
         <FormControl id="subject" isRequired>
           <FormLabel>Subject</FormLabel>
-          <Input onChange={(e) => setSubject(e.target.value)} />
+          <Input value={subject} onChange={(e) => setSubject(e.target.value)} />
         </FormControl>
         <FormControl id="message" isRequired>
           <FormLabel>Message</FormLabel>
-          <Textarea onChange={(e) => setMessage(e.target.value)} />
+          <Textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </FormControl>
+
         <br />
 
         <Button
@@ -49,14 +110,11 @@ export default function About() {
           style={{ background: '#FBD802' }}
           color="dark"
           type="submit"
+          isLoading={isSubmitting}
+          loadingText="Sending"
+          onClick={handleSubmit}
         >
-          <a
-            href={`mailto:zwemsoe@gmail.com?subject=${encodeURIComponent(
-              subject
-            )}&body=${encodeURIComponent(message)}`}
-          >
-            Send Message
-          </a>
+          Send Message
         </Button>
         <br />
         <Center>
