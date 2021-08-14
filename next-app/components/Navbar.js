@@ -13,7 +13,7 @@ import {
 import { HiMenu } from 'react-icons/hi';
 import Link from 'next/link';
 import Image from 'next/image';
-import nameLogo from '../public/assets/name.svg';
+import nameLogo from '../public/images/name.svg';
 import useScreenWidth from '../utils/hooks/useScreenWidth';
 import { CustomLink } from '../styles/components';
 import { useStateContext } from '../utils/provider';

@@ -2,7 +2,7 @@ import { Text, Heading, Stack, HStack, Link } from '@chakra-ui/react';
 import Image from 'next/image';
 import { useStateContext } from '../../utils/provider';
 import { SET_PAGE } from '../../utils/actions';
-import myPic from '../../public/assets/my-pic.png';
+import myPic from '../../public/images/my-pic.png';
 
 export default function About() {
   const [{ page }, dispatch] = useStateContext();

@@ -69,12 +69,17 @@ export default function About() {
           </Heading>
         </Center>
         <br />
-        <Center>
-          <Text fontSize="md" fontWeight="normal" color="red">
-            {error}
-          </Text>
-        </Center>
-        <br />
+        {error && (
+          <>
+            <Center>
+              <Text fontSize="md" fontWeight="normal" color="red">
+                {error}
+              </Text>
+            </Center>
+            <br />
+          </>
+        )}
+
         <FormControl id="name" isRequired>
           <FormLabel>Name</FormLabel>
           <Input

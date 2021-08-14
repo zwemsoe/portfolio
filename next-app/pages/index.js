@@ -25,7 +25,10 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Home</title>
-        <meta name="description" content="Zwe Min Soe's Portfolio" />
+        <meta
+          name="description"
+          content="Zwe Min Soe Personal Portfolio Website"
+        />
       </Head>
       {isLargeScreen && <ScrollProgress />}
 
@@ -34,7 +37,7 @@ export default function Home() {
         pages={4}
         style={{
           width: '80vw',
-          height: '80vh',
+          height: '85vh',
           overflowY: 'hidden',
         }}
         enabled={false}
