@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import { useStateContext } from '../utils/provider';
 import {
   ScrollProgress,

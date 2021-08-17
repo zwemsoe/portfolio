@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import { ChakraProvider, Box } from '@chakra-ui/react';
 import theme from '../styles/theme';
 import AppContainer from '../components/AppContainer';

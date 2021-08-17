@@ -30,7 +30,7 @@ export default function Navbar() {
     <>
       <Flex alignItems={'center'} justifyContent={'space-around'} w="100%">
         <Flex alignItems={'center'}>
-          <Link href="/">
+          <Link href="/" passHref>
             <CustomLink
               onClick={() =>
                 dispatch({
@@ -61,7 +61,7 @@ const DesktopNav = () => {
   return (
     <HStack spacing={8} alignItems={'center'}>
       <HStack as="nav" spacing={10} display={{ base: 'none', md: 'flex' }}>
-        <Link href="/blog">
+        <Link href="/blog" passHref>
           <CustomLink color="white" underline>
             <Heading size="md" fontWeight="normal">
               Blog
@@ -69,7 +69,7 @@ const DesktopNav = () => {
           </CustomLink>
         </Link>
 
-        <Link href="/">
+        <Link href="/" passHref>
           <CustomLink
             color="white"
             underline
@@ -86,7 +86,7 @@ const DesktopNav = () => {
           </CustomLink>
         </Link>
 
-        <Link href="/">
+        <Link href="/" passHref>
           <CustomLink
             color="white"
             underline
@@ -124,7 +124,7 @@ const MobileNav = () => {
       />
 
       <MenuList>
-        <Link href="/blog">
+        <Link href="/blog" passHref>
           <MenuItem>
             <Heading size="xs" fontWeight="normal">
               Blog
@@ -132,7 +132,7 @@ const MobileNav = () => {
           </MenuItem>
         </Link>
 
-        <Link href="/">
+        <Link href="/" passHref>
           <CustomLink
             color="black"
             underline
@@ -151,7 +151,7 @@ const MobileNav = () => {
           </CustomLink>
         </Link>
 
-        <Link href="/">
+        <Link href="/" passHref>
           <CustomLink
             color="black"
             underline
