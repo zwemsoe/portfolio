@@ -1,7 +1,7 @@
 import { Flex, VStack, HStack, IconButton, Icon, Link } from '@chakra-ui/react';
 import { FaGithub, FaTwitter, FaLinkedin, FaChessPawn } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import useScreenWidth from '../utils/hooks/useScreenWidth';
+import useScreenWidth from '@/utils/hooks/useScreenWidth';
 
 const contacts = [
   {

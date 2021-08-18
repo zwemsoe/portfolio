@@ -10,12 +10,12 @@ import {
   HStack,
   Center,
 } from '@chakra-ui/react';
-import { useStateContext } from '../../utils/provider';
-import { SET_PAGE } from '../../utils/actions';
+import { useStateContext } from '@/utils/provider';
+import { SET_PAGE } from '@/utils/actions';
 import DevTimeline from './DevTimeline';
 import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
 import { DiMongodb } from 'react-icons/di';
-import useScreenWidth from '../../utils/hooks/useScreenWidth';
+import useScreenWidth from '@/utils/hooks/useScreenWidth';
 
 const skills = [
   {

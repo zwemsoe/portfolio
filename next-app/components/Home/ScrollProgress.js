@@ -1,6 +1,6 @@
 import { VStack, Flex, Icon } from '@chakra-ui/react';
 import { FaCircle } from 'react-icons/fa';
-import { useStateContext } from '../../utils/provider';
+import { useStateContext } from '@/utils/provider';
 
 export default function ScrollProgress() {
   const [{ page }, dispatch] = useStateContext();

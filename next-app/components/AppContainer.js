@@ -7,7 +7,7 @@ export default function AppContainer({ children, ...props }) {
     <>
       <VStack bg="dark">
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Contacts />
       </VStack>
     </>

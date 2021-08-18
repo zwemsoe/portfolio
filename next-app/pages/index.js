@@ -1,16 +1,16 @@
 import { useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import styles from '../styles/Home.module.scss';
-import { useStateContext } from '../utils/provider';
+import styles from '@/styles/Home.module.scss';
+import { useStateContext } from '@/utils/provider';
 import {
   ScrollProgress,
   Landing,
   About,
   Dev,
   ContactMe,
-} from '../components/Home';
-import useScreenWidth from '../utils/hooks/useScreenWidth';
+} from '@/components/Home';
+import useScreenWidth from '@/utils/hooks/useScreenWidth';
 
 export default function Home() {
   const parallaxRef = useRef();
