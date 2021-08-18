@@ -13,9 +13,9 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
-import { useStateContext } from '../../utils/provider';
-import { SET_PAGE } from '../../utils/actions';
-import fetchAPI from '../../utils/fetchAPI';
+import { useStateContext } from '@/utils/provider';
+import { SET_PAGE } from '@/utils/actions';
+import fetcher from '@/utils/fetcher';
 
 // From: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 function validateEmail(email) {
@@ -37,7 +37,7 @@ export default function About() {
     setSubmitting(true);
     if (name && email && subject && message) {
       if (validateEmail(email)) {
-        const { success } = await fetchAPI({
+        const { success } = await fetcher({
           method: 'POST',
           data: { name, email, subject, message },
           endpoint: '/api/add-contact',
@@ -69,12 +69,17 @@ export default function About() {
           </Heading>
         </Center>
         <br />
-        <Center>
-          <Text fontSize="md" fontWeight="normal" color="red">
-            {error}
-          </Text>
-        </Center>
-        <br />
+        {error && (
+          <>
+            <Center>
+              <Text fontSize="md" fontWeight="normal" color="red">
+                {error}
+              </Text>
+            </Center>
+            <br />
+          </>
+        )}
+
         <FormControl id="name" isRequired>
           <FormLabel>Name</FormLabel>
           <Input

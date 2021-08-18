@@ -1,4 +1,4 @@
-export default async function fetchAPI({
+export default async function fetcher({
   method = 'POST',
   endpoint = '/',
   data = {},
@@ -9,7 +9,7 @@ export default async function fetchAPI({
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: method === 'POST' ? JSON.stringify(data) : undefined,
   });
   return response.json();
 }

@@ -1,8 +1,9 @@
-import { Text, Heading, Stack, HStack, Link } from '@chakra-ui/react';
+import { Text, Heading, Stack, HStack } from '@chakra-ui/react';
 import Image from 'next/image';
-import { useStateContext } from '../../utils/provider';
-import { SET_PAGE } from '../../utils/actions';
-import myPic from '../../public/assets/my-pic.png';
+import { useStateContext } from '@/utils/provider';
+import { SET_PAGE } from '@/utils/actions';
+import myPic from '@/public/images/my-pic.png';
+import NextLink from '../NextLink';
 
 export default function About() {
   const [{ page }, dispatch] = useStateContext();
@@ -35,17 +36,17 @@ export default function About() {
             student at Simon Fraser University. I have over a year experience of
             working with ReactJS and NodeJS stacks. I'm working as a Lead
             Software Engineer at{' '}
-            <Link
-              color="teal.200"
+            <NextLink
+              color="orange"
               href="https://www.bridgeburma.com/"
               isExternal
             >
               BridgeBurma
-            </Link>{' '}
+            </NextLink>{' '}
             and a Full-Stack developer at{' '}
-            <Link color="teal.200" href="https://letsbyo.com/" isExternal>
+            <NextLink color="orange" href="https://letsbyo.com/" isExternal>
               BYO
-            </Link>{' '}
+            </NextLink>{' '}
             . My interests include software development, clean-code, automation,
             and chess.
           </Text>

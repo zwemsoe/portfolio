@@ -15,3 +15,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.next-link-underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.next-link:hover {
+  cursor: pointer;
+}

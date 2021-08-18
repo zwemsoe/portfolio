@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/Blog.module.css';
+import styles from '@/styles/Error.module.scss';
 import { Heading } from '@chakra-ui/react';
 
 export default function Custom404() {

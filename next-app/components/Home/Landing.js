@@ -1,6 +1,6 @@
 import { Button, Heading, Stack } from '@chakra-ui/react';
-import { useStateContext } from '../../utils/provider';
-import { SET_PAGE } from '../../utils/actions';
+import { useStateContext } from '@/utils/provider';
+import { SET_PAGE } from '@/utils/actions';
 
 export default function Landing() {
   const [{ page }, dispatch] = useStateContext();

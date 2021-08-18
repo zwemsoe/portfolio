@@ -1,16 +1,16 @@
 import { useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import styles from '../styles/Home.module.css';
-import { useStateContext } from '../utils/provider';
+import styles from '@/styles/Home.module.scss';
+import { useStateContext } from '@/utils/provider';
 import {
   ScrollProgress,
   Landing,
   About,
   Dev,
   ContactMe,
-} from '../components/Home';
-import useScreenWidth from '../utils/hooks/useScreenWidth';
+} from '@/components/Home';
+import useScreenWidth from '@/utils/hooks/useScreenWidth';
 
 export default function Home() {
   const parallaxRef = useRef();
@@ -25,7 +25,10 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Home</title>
-        <meta name="description" content="Zwe Min Soe's Portfolio" />
+        <meta
+          name="description"
+          content="Zwe Min Soe Personal Portfolio Website"
+        />
       </Head>
       {isLargeScreen && <ScrollProgress />}
 
@@ -34,7 +37,7 @@ export default function Home() {
         pages={4}
         style={{
           width: '80vw',
-          height: '80vh',
+          height: '85vh',
           overflowY: 'hidden',
         }}
         enabled={false}
