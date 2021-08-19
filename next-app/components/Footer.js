@@ -39,7 +39,10 @@ export default function Footer() {
       <Flex align="center" justify="center" w="100%">
         <Box paddingBottom={15}>
           <HStack spacing={5}>
-            <NextLink href={track ? track.url : '/'} isExternal>
+            <NextLink
+              href={track ? track.url : '/'}
+              isExternal={track ? true : false}
+            >
               <Icon
                 as={FaSpotify}
                 w={9}
