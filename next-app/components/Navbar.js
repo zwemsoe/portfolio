@@ -92,7 +92,7 @@ const DesktopNav = () => {
           }
         >
           <Heading size="md" fontWeight="normal">
-            Dev
+            Work
           </Heading>
         </NextLink>
 
@@ -156,7 +156,7 @@ const MobileNav = () => {
         >
           <MenuItem>
             <Heading size="xs" fontWeight="normal">
-              Dev
+              Work
             </Heading>
           </MenuItem>
         </NextLink>

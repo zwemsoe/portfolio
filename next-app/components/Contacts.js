@@ -74,7 +74,7 @@ const DesktopView = ({ iconSize }) => {
 
 const MobileView = ({ iconSize }) => {
   return (
-    <Flex py={5} id="contacts" align="center" justify="center">
+    <Flex py={5} align="center" justify="center">
       <HStack spacing="20px">
         {contacts.map((item) => (
           <Link key={item.label} href={item.link} isExternal>
