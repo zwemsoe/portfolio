@@ -19,7 +19,7 @@ export default function NextLink({
         onClick={onClick}
         className={underline ? 'next-link-underline' : 'next-link'}
         style={{ ...defaultStyle, ...style }}
-        target={isExternal && '_blank'}
+        target={isExternal ? '_blank' : '_self'}
         rel="noreferrer"
       >
         {children}
