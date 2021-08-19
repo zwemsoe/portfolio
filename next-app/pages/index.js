@@ -7,7 +7,7 @@ import {
   ScrollProgress,
   Landing,
   About,
-  Dev,
+  Work,
   ContactMe,
 } from '@/components/Home';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
@@ -78,7 +78,7 @@ export default function Home() {
             color: 'white',
           }}
         >
-          <Dev />
+          <Work />
         </ParallaxLayer>
 
         <ParallaxLayer

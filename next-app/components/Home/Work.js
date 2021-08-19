@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
-import DevTimeline from './DevTimeline';
+import WorkTimeline from './WorkTimeline';
 import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
 import { DiMongodb } from 'react-icons/di';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
@@ -58,11 +58,11 @@ export default function Dev() {
       <Stack>
         <Center>
           <Heading size="lg" fontWeight="bold" color="white">
-            Dev Timeline
+            Work Timeline
           </Heading>
         </Center>
         {isLargeScreen && <br />}
-        <DevTimeline />
+        <WorkTimeline />
         <br />
         <Center>
           <Heading size="lg" fontWeight="bold" color="white">
