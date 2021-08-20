@@ -11,7 +11,10 @@ export const BlogUnorderedList = ({ children }) => {
 export const BlogUnorderedListItem = ({ children }) => {
   return (
     <ListItem style={{ lineHeight: '2rem', color: 'yellow' }}>
-      <Text color="light" fontSize="xl">
+      <Text
+        color="light"
+        fontSize={{ base: '17px', md: '18px', lg: '19px', xl: '21px' }}
+      >
         {children}
       </Text>
     </ListItem>

@@ -13,17 +13,9 @@ const CodeFile = ({ children }) => {
   );
 };
 
-<Image
-  alt={`My LinkedIn Bio`}
-  src={`/images/blog/theoffice.jpeg`}
-  width={1468}
-  height={558}
-  priority
-/>;
-
 const CustomImage = ({ src, width = 1000, height = 400, alt = '' }) => {
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div style={{ marginBottom: 20, maxWidth: '95vw' }}>
       <Image alt={alt} src={src} width={width} height={height} priority />
     </div>
   );

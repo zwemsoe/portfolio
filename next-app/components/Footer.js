@@ -37,7 +37,7 @@ export default function Footer() {
   return (
     <>
       <Center>
-        <div paddingBottom={isLargeScreen ? 15 : 0}>
+        <div style={{ paddingBottom: isLargeScreen ? 15 : 0 }}>
           <HStack spacing={5}>
             <NextLink
               href={track ? track.url : '/'}
