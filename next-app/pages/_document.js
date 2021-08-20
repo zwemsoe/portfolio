@@ -49,24 +49,24 @@ export default class AppDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap"
             rel="stylesheet"
           />
-          {/* <link
+          <link
             href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
             rel="stylesheet"
-          /> */}
-          {/* <link
+          />
+          <link
             href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;500;700&display=swap"
             rel="stylesheet"
-          /> */}
-          {/* <link
+          />
+          <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
             rel="stylesheet"
-          /> */}
+          />
 
           {/* Prism */}
-          {/* <link
+          <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css"
-          /> */}
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />

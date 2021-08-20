@@ -1,14 +1,14 @@
-import Head from 'next/head';
 import styles from '@/styles/Blogs.module.scss';
 import { Heading, Box, Center } from '@chakra-ui/react';
+import AppContainer from '@/components/AppContainer';
 
 export default function Blog() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Blog</title>
-        <meta name="description" content="Zwe Min Soe's Blog" />
-      </Head>
+    <AppContainer
+      containerClass={styles.container}
+      title="Blog"
+      description="Zwe Min Soe blogs. I write about web development tips and tricks."
+    >
       <Box>
         <Center>
           <Heading size="xl" fontWeight="normal" color="white">
@@ -24,6 +24,6 @@ export default function Blog() {
           allowFullScreen
         ></iframe>
       </Box>
-    </div>
+    </AppContainer>
   );
 }

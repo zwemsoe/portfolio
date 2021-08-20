@@ -19,7 +19,8 @@ export default function Landing() {
         </Heading>
 
         <Heading size="xl" fontWeight="normal">
-          Aspiring Full-Stack Developer. Curious Learner. Avid Chess Player.
+          Aspiring Full-Stack Developer. React & Node Enthusiast. Avid Chess
+          Player.
         </Heading>
       </span>
       <br />

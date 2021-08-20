@@ -16,6 +16,15 @@ a {
   box-sizing: border-box;
 }
 
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .next-link-underline:hover {
   text-decoration: underline;
   cursor: pointer;

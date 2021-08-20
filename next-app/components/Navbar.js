@@ -26,8 +26,12 @@ export default function Navbar() {
 
   return (
     <>
-      <Flex alignItems={'center'} justifyContent={'space-around'} w="100%">
-        <Flex alignItems={'center'}>
+      <Flex
+        alignItems={'center'}
+        justifyContent={isLargeScreen ? 'space-around' : 'space-between'}
+        w="100%"
+      >
+        <Flex alignItems={'center'} marginLeft={isLargeScreen ? 0 : 5}>
           <NextLink
             href="/"
             onClick={() =>

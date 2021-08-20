@@ -3,7 +3,7 @@ import {
   Flex,
   Icon,
   Box,
-  Circle,
+  Center,
   VStack,
   HStack,
   Text,
@@ -36,8 +36,8 @@ export default function Footer() {
 
   return (
     <>
-      <Flex align="center" justify="center" w="100%">
-        <Box paddingBottom={15}>
+      <Center>
+        <Box paddingBottom={isLargeScreen ? 15 : 0}>
           <HStack spacing={5}>
             <NextLink
               href={track ? track.url : '/'}
@@ -61,7 +61,8 @@ export default function Footer() {
             </VStack>
           </HStack>
         </Box>
-      </Flex>
+      </Center>
+
       {!isLargeScreen && <Divider orientation="horizontal" />}
     </>
   );

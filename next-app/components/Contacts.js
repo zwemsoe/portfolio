@@ -57,7 +57,7 @@ const DesktopView = ({ iconSize }) => {
       }}
       w={50}
     >
-      <VStack spacing={'20px'}>
+      <VStack spacing={'20px'} bg="dark">
         {contacts.map((item) => (
           <Link key={item.label} href={item.link} isExternal>
             <IconButton
