@@ -9,6 +9,7 @@ import {
   Text,
   Divider,
 } from '@chakra-ui/react';
+import useSWR from 'swr';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
 import { MdMusicNote } from 'react-icons/md';
 import { FaSpotify } from 'react-icons/fa';
@@ -25,16 +26,12 @@ export default function Footer() {
   }, []);
 
   const fetchTrack = async () => {
-    try {
-      const { success, data } = await fetcher({
-        method: 'GET',
-        endpoint: '/api/currently-playing',
-      });
-      if (success) {
-        setTrack(data);
-      }
-    } catch (err) {
-      console.log(err);
+    const { success, data } = await fetcher({
+      method: 'GET',
+      endpoint: '/api/currently-playing',
+    });
+    if (success) {
+      setTrack(data);
     }
   };
 

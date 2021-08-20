@@ -40,7 +40,7 @@ const skills = [
   },
 ];
 
-export default function Dev() {
+export default function Work() {
   const [{ page }, dispatch] = useStateContext();
   const { isLargeScreen } = useScreenWidth();
   const mobileIconSize = { width: '2em', height: '2em' };

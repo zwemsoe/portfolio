@@ -29,7 +29,8 @@
     "react-icons": "^4.2.0",
     "reading-time": "^1.4.0",
     "rehype-prism-plus": "^0.0.5",
-    "sass": "^1.37.5"
+    "sass": "^1.37.5",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
