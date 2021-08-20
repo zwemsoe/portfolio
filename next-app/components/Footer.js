@@ -9,9 +9,7 @@ import {
   Text,
   Divider,
 } from '@chakra-ui/react';
-import useSWR from 'swr';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
-import { MdMusicNote } from 'react-icons/md';
 import { FaSpotify } from 'react-icons/fa';
 import fetcher from '@/utils/fetcher';
 import NextLink from './NextLink';

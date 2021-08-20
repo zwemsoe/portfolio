@@ -11,7 +11,7 @@ export const getMDXFile = (fileName) => {
   return fs.readFileSync(path.join(BLOGS_PATH, fileName));
 };
 
-export const getAllBlogs = () => {
+export const getAllBlogs = async () => {
   return fs
     .readdirSync(BLOGS_PATH)
     .filter((path) => /\.mdx?$/.test(path))
