@@ -37,7 +37,7 @@ export default function Footer() {
   return (
     <>
       <Center>
-        <Box paddingBottom={isLargeScreen ? 15 : 0}>
+        <div paddingBottom={isLargeScreen ? 15 : 0}>
           <HStack spacing={5}>
             <NextLink
               href={track ? track.url : '/'}
@@ -60,7 +60,7 @@ export default function Footer() {
               </Text>
             </VStack>
           </HStack>
-        </Box>
+        </div>
       </Center>
 
       {!isLargeScreen && <Divider orientation="horizontal" />}

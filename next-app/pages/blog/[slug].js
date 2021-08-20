@@ -42,13 +42,13 @@ const Blog = ({ code, frontmatter, read_time }) => {
           )} | ${read_time}`}
         </Text>
 
-        <Box marginTop={2} marginBottom={5}>
+        <div style={{ marginBottom: 20 }}>
           {frontmatter.tags.map((tag) => (
             <Code key={tag} bg="#B2B1B9" marginRight={3}>
               {tag}
             </Code>
           ))}
-        </Box>
+        </div>
 
         <MDXComponent components={{ ...Components }} />
       </article>
