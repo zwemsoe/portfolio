@@ -66,9 +66,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = await getAllBlogs().map(({ slug }) => ({ params: { slug } }));
+  const blogs = await getAllBlogs();
   return {
-    paths,
+    paths: blogs.map((b) => ({
+      params: {
+        slug: b.replace(/\.mdx/, ''),
+      },
+    })),
     fallback: false,
   };
 };

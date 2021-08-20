@@ -12,19 +12,7 @@ export const getMDXFile = (fileName) => {
 };
 
 export const getAllBlogs = async () => {
-  return fs
-    .readdirSync(BLOGS_PATH)
-    .filter((path) => /\.mdx?$/.test(path))
-    .map((fileName) => {
-      const source = getMDXFile(fileName);
-      const slug = fileName.replace(/\.mdx?$/, '');
-      const { data } = matter(source);
-
-      return {
-        frontmatter: data,
-        slug,
-      };
-    });
+  return fs.readdirSync(BLOGS_PATH);
 };
 
 export const getSingleBlog = async (slug) => {
