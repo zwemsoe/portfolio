@@ -6,13 +6,14 @@ import { Heading, Text, Code, Flex } from '@chakra-ui/react';
 import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
 import AppContainer from '@/components/AppContainer';
 import Components from '@/components/MDXComponents';
+import { BLOG_FONT } from '@/constants';
 
 const Blog = ({ code, frontmatter, read_time }) => {
   const MDXComponent = React.useMemo(() => getMDXComponent(code), [code]);
   return (
     <AppContainer
       containerClass={styles.container}
-      containerStyle={{ color: 'white', fontFamily: 'Ubuntu' }}
+      containerStyle={{ color: 'white', fontFamily: BLOG_FONT }}
       title={frontmatter.title}
       description={frontmatter.summary}
       image={`https://zweminsoe.com${frontmatter.image}`}
@@ -24,7 +25,7 @@ const Blog = ({ code, frontmatter, read_time }) => {
           fontSize="2.2rem"
           fontWeight="bold"
           color="white"
-          fontFamily="Ubuntu"
+          fontFamily={BLOG_FONT}
           marginBottom={2}
         >
           {frontmatter.title}
@@ -33,7 +34,7 @@ const Blog = ({ code, frontmatter, read_time }) => {
           fontSize="md"
           fontWeight="normal"
           color="white"
-          fontFamily="Ubuntu"
+          fontFamily={BLOG_FONT}
           marginBottom={2}
         >
           {`${format(

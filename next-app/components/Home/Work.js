@@ -73,7 +73,12 @@ export default function Work() {
         <Center>
           <HStack spacing={35}>
             {skills.map((item) => (
-              <Icon as={item.icon} style={iconSize} color={item.color} />
+              <Icon
+                key={item.label}
+                as={item.icon}
+                style={iconSize}
+                color={item.color}
+              />
             ))}
           </HStack>
         </Center>

@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
-import fetcher from '@/utils/fetcher';
+import postAPI from '@/utils/postAPI';
 
 // From: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 function validateEmail(email) {
@@ -37,7 +37,7 @@ export default function About() {
     setSubmitting(true);
     if (name && email && subject && message) {
       if (validateEmail(email)) {
-        const { success } = await fetcher({
+        const { success } = await postAPI({
           method: 'POST',
           data: { name, email, subject, message },
           endpoint: '/api/add-contact',

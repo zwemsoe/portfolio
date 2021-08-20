@@ -29,7 +29,7 @@ export default function AppContainer({
         />
         <link rel="canonical" href={`https://zweminsoe.soe${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Lee Robinson" />
+        <meta property="og:site_name" content="Zwe Min Soe" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />

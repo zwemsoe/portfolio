@@ -1,15 +1,4 @@
-export default async function fetcher({
-  method = 'POST',
-  endpoint = '/',
-  data = {},
-}) {
-  const response = await fetch(endpoint, {
-    method: method,
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: method === 'POST' ? JSON.stringify(data) : undefined,
-  });
-  return response.json();
+export default async function fetcher(path) {
+  const res = await fetch(path);
+  return res.json();
 }
