@@ -25,12 +25,16 @@ export default function Footer() {
   }, []);
 
   const fetchTrack = async () => {
-    const { success, data } = await fetcher({
-      method: 'GET',
-      endpoint: '/api/currently-playing',
-    });
-    if (success) {
-      setTrack(data);
+    try {
+      const { success, data } = await fetcher({
+        method: 'GET',
+        endpoint: '/api/currently-playing',
+      });
+      if (success) {
+        setTrack(data);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

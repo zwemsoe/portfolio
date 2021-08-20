@@ -15,7 +15,7 @@ const CodeFile = ({ children }) => {
 
 const CustomImage = ({ src, width = 1000, height = 400, alt = '' }) => {
   return (
-    <div style={{ marginBottom: 20, maxWidth: '95vw' }}>
+    <div style={{ marginBottom: 20 }}>
       <Image alt={alt} src={src} width={width} height={height} priority />
     </div>
   );
