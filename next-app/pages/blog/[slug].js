@@ -1,13 +1,13 @@
 import React from 'react';
-import { parseISO, format } from 'date-fns';
+import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import styles from '@/styles/Blog.module.scss';
-import { Heading, Box, Center } from '@chakra-ui/react';
+import { Heading, Text, Code, Box } from '@chakra-ui/react';
 import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
 import AppContainer from '@/components/AppContainer';
 import Components from '@/components/MDXComponents';
 
-const Blog = ({ code, frontmatter }) => {
+const Blog = ({ code, frontmatter, read_time }) => {
   const MDXComponent = React.useMemo(() => getMDXComponent(code), [code]);
   return (
     <AppContainer
@@ -26,10 +26,30 @@ const Blog = ({ code, frontmatter }) => {
           fontWeight="bold"
           color="white"
           fontFamily="Ubuntu"
-          marginBottom={7}
+          marginBottom={2}
         >
           {frontmatter.title}
         </Heading>
+        <Text
+          fontSize="md"
+          fontWeight="normal"
+          color="white"
+          fontFamily="Ubuntu"
+          marginBottom={2}
+        >
+          {`${format(
+            new Date(frontmatter.publishedAt),
+            'MMMM dd, yyyy'
+          )} | ${read_time}`}
+        </Text>
+
+        <Box marginTop={2} marginBottom={5}>
+          {frontmatter.tags.map((tag) => (
+            <Code key={tag} bg="#B2B1B9" marginRight={3}>
+              {tag}
+            </Code>
+          ))}
+        </Box>
 
         <MDXComponent components={{ ...Components }} />
       </article>

@@ -44,12 +44,6 @@ export default function AppContainer({
             content={meta.publishedDate}
           />
         )}
-        {meta.lastUpdatedDate && (
-          <meta
-            property="article:last_updated_time"
-            content={meta.lastUpdatedDate}
-          />
-        )}
       </Head>
       <main className={containerClass} style={{ ...containerStyle }}>
         {children}

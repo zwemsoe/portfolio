@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
 import rehypePrism from 'rehype-prism-plus';
+import readingTime from 'reading-time';
 
 export const BLOGS_PATH = path.join(process.cwd(), 'mdx/blogs');
 
@@ -37,8 +38,11 @@ export const getSingleBlog = async (slug) => {
     },
   });
 
+  const read_time = readingTime(code);
+
   return {
     frontmatter,
     code,
+    read_time: read_time.text,
   };
 };
