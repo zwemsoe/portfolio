@@ -47,6 +47,7 @@ export default function Navbar() {
               width={150}
               height={50}
               quality={100}
+              priority
             />
           </NextLink>
         </Flex>

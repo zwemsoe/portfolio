@@ -13,8 +13,24 @@ const CodeFile = ({ children }) => {
   );
 };
 
+<Image
+  alt={`My LinkedIn Bio`}
+  src={`/images/blog/theoffice.jpeg`}
+  width={1468}
+  height={558}
+  priority
+/>;
+
+const CustomImage = ({ src, width = 1468, height = 558, alt = '' }) => {
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <Image alt={alt} src={src} width={width} height={height} priority />
+    </div>
+  );
+};
+
 export default {
-  Image,
+  CustomImage,
   a: BlogLink,
   code: Code,
   p: BlogParagraph,

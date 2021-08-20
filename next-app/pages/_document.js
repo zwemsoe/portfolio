@@ -53,14 +53,14 @@ export default class AppDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
-          <link
+          {/* <link
             href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
             rel="stylesheet"
-          />
+          /> */}
 
           {/* Prism */}
           <link

@@ -17,7 +17,14 @@ export default function About() {
       }}
     >
       <HStack spacing={{ base: 5, md: 10, lg: 20, xl: 50 }}>
-        <Image src={myPic} alt="Me!" width={1500} height={1500} quality={100} />
+        <Image
+          src={myPic}
+          alt="Me!"
+          width={1500}
+          height={1500}
+          quality={100}
+          priority
+        />
         <Stack>
           <Heading size="xl" fontWeight="bold" color="light">
             ABOUT ME
