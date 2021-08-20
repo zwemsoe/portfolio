@@ -2,7 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import styles from '@/styles/Blog.module.scss';
-import { Heading, Text, Code, Box } from '@chakra-ui/react';
+import { Heading, Text, Code, Flex } from '@chakra-ui/react';
 import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
 import AppContainer from '@/components/AppContainer';
 import Components from '@/components/MDXComponents';
@@ -50,7 +50,9 @@ const Blog = ({ code, frontmatter, read_time }) => {
           ))}
         </div>
 
-        <MDXComponent components={{ ...Components }} />
+        <div style={{ maxWidth: '90vw' }}>
+          <MDXComponent components={{ ...Components }} />
+        </div>
       </article>
     </AppContainer>
   );
