@@ -18,7 +18,6 @@ const Blog = ({ code, frontmatter, read_time }) => {
       image={`https://zweminsoe.com${frontmatter.image}`}
       type="article"
       publishedDate={new Date(frontmatter.publishedAt).toISOString()}
-      lastUpdatedDate={new Date(frontmatter.lastUpdatedAt).toISOString()}
     >
       <article style={{ marginTop: 20 }}>
         <Heading
