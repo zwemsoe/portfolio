@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { Code } from '@chakra-ui/react';
+import NextLink from '../NextLink';
 
 export default function BlogLink(props) {
   const href = props.href;
@@ -7,20 +6,15 @@ export default function BlogLink(props) {
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
-        <a {...props} style={{ color: 'blue' }}>
-          {props.children}
-        </a>
-      </Link>
+      <NextLink href={href} color="light" {...props}>
+        {props.children}
+      </NextLink>
     );
   }
 
   return (
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-      style={{ color: '#64C9CF' }}
-    />
+    <NextLink href={href} color="#64C9CF" isExternal {...props}>
+      {props.children}
+    </NextLink>
   );
 }

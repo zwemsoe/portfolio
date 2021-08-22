@@ -1,0 +1,121 @@
+---
+title: 'Create a Todo app with ReactJS'
+summary: 'This is a tutorial on how to create a todo app using ReactJS and store in local storage'
+publishedAt: '08-18-2021'
+tags: ['Frontend', 'ReactJS', 'CRA', 'HTML', 'CSS', 'JavaScript']
+image: '/images/blog/react-code.jpg'
+---
+
+<CustomImage
+  alt={`React code image`}
+  src={`/images/blog/react-code.jpg`}
+  width={1000}
+  height={500}
+  priority
+/>
+
+In this tutorial, you'll learn how to create a todo app using create-react-app and store your todo items persistently in your browser's local storage.
+This tutorial is for the peeps who are looking to get started with React. It will primarily focus on the functionality part of the app rather than styling and design.
+
+## Prerequisites
+
+- Familiarity with HTML, CSS, and JavaScript
+- Install [Node](https://nodejs.org/en/) (LTS - version)
+
+## Create React App
+
+[Create React App](https://create-react-app.dev/) (CRA) is one of the easiest ways to create a React project and the [recommended way](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) by the official React team. It provides the pre-configured setup for bundling your files and a boilerplate for your project.
+
+To get started, open up your terminal on whichever directory you prefer and run:
+
+```bash
+npx create-react-app todo-app
+```
+
+After it's done setting up, change directory into it and start up your server:
+
+```bash
+cd todo-app
+npm start
+```
+
+This will start your development server on http://localhost:3000. If you see an animated React icon on the screen, you're good to go.
+
+Now, let's explore the folder structure and some of the key files in it.
+
+The project is structured into two main folders: `public` and `src` .
+`public` contains all the assets like images, favicons, html files and etc. We won't need to concern ourselves with this folder.
+`src` folder is where we put all our javascript files and write our logic.
+
+To understand how React renders the page, we need to look at the files: `index.js` , `App.js` , and `index.html` .
+
+nside App.js, we see the function App the returns the HTML content that is displayed on the screen.
+
+<CodeFile children="App.js" />
+
+```js
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+Next, `index.js` takes this App function and calls or renders it inside the DOM element with an id called "root". You can file this element (which is a div) inside `index.html` file.
+
+<CodeFile children="index.js" />
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+<CodeFile children="index.html" />
+
+```html
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+```
+
+Essentially, React is taking HTML returned from App and pasting it inside that div with id="root".

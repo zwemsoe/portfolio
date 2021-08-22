@@ -16,6 +16,7 @@ import useScreenWidth from '@/utils/hooks/useScreenWidth';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
 import NextLink from './NextLink';
+import { HOME_VIEW } from '@/constants';
 
 const RESUME_LINK =
   'https://drive.google.com/file/d/1nZAXFMMI1c1U2UtzI_dbeoewk4HBvmqI/view';
@@ -37,7 +38,7 @@ export default function Navbar() {
             onClick={() =>
               dispatch({
                 type: SET_PAGE,
-                page: 0,
+                page: HOME_VIEW.LANDING,
               })
             }
           >
@@ -76,7 +77,7 @@ const DesktopNav = () => {
           onClick={() => {
             dispatch({
               type: SET_PAGE,
-              page: 1,
+              page: HOME_VIEW.ABOUT,
             });
           }}
         >
@@ -92,7 +93,7 @@ const DesktopNav = () => {
           onClick={() =>
             dispatch({
               type: SET_PAGE,
-              page: 2,
+              page: HOME_VIEW.WORK,
             })
           }
         >
@@ -137,7 +138,7 @@ const MobileNav = () => {
           onClick={() =>
             dispatch({
               type: SET_PAGE,
-              page: 1,
+              page: HOME_VIEW.ABOUT,
             })
           }
         >
@@ -155,7 +156,7 @@ const MobileNav = () => {
           onClick={() =>
             dispatch({
               type: SET_PAGE,
-              page: 2,
+              page: HOME_VIEW.WORK,
             })
           }
         >

@@ -16,6 +16,7 @@ import { FaArrowCircleUp } from 'react-icons/fa';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
 import postAPI from '@/utils/postAPI';
+import { HOME_VIEW } from '@/constants';
 
 // From: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 function validateEmail(email) {
@@ -65,7 +66,7 @@ export default function About() {
       <Stack w={400}>
         <Center>
           <Heading size="xl" fontWeight="bold">
-            Let's get in touch!
+            Send me a message!
           </Heading>
         </Center>
         <br />
@@ -132,7 +133,7 @@ export default function About() {
             onClick={() =>
               dispatch({
                 type: SET_PAGE,
-                page: 0,
+                page: HOME_VIEW.LANDING,
               })
             }
           />

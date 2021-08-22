@@ -1,6 +1,7 @@
 import { Button, Heading, Stack } from '@chakra-ui/react';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
+import { HOME_VIEW } from '@/constants';
 
 export default function Landing() {
   const [{ page }, dispatch] = useStateContext();
@@ -10,7 +11,7 @@ export default function Landing() {
         onClick={() => {
           dispatch({
             type: SET_PAGE,
-            page: 1,
+            page: HOME_VIEW.ABOUT,
           });
         }}
       >
@@ -32,7 +33,7 @@ export default function Landing() {
         onClick={() => {
           dispatch({
             type: SET_PAGE,
-            page: 3,
+            page: HOME_VIEW.CONTACT,
           });
         }}
       >

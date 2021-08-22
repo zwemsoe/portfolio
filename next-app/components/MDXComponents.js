@@ -13,10 +13,16 @@ const CodeFile = ({ children }) => {
   );
 };
 
-const CustomImage = ({ src, width = 1000, height = 400, alt = '' }) => {
+const CustomImage = ({
+  src,
+  width = 1000,
+  height = 400,
+  alt = '',
+  ...props
+}) => {
   return (
     <div style={{ marginBottom: 20 }}>
-      <Image alt={alt} src={src} width={width} height={height} priority />
+      <Image alt={alt} src={src} width={width} height={height} {...props} />
     </div>
   );
 };

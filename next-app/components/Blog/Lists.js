@@ -2,7 +2,7 @@ import { UnorderedList, ListItem, Text } from '@chakra-ui/react';
 
 export const BlogUnorderedList = ({ children }) => {
   return (
-    <UnorderedList style={{}} marginTop={3} marginBottom={3}>
+    <UnorderedList marginTop={3} marginBottom={3}>
       {children}
     </UnorderedList>
   );

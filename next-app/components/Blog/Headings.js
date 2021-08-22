@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 import { BLOG_FONT } from '@/constants';
 
-export const BlogHeading2 = ({ children }) => {
+export const BlogHeading2 = ({ children, ...props }) => {
   return (
     <Heading
       style={{ fontFamily: BLOG_FONT }}
@@ -9,13 +9,14 @@ export const BlogHeading2 = ({ children }) => {
       fontWeight="bold"
       marginTop={10}
       marginBottom={3}
+      {...props}
     >
       {children}
     </Heading>
   );
 };
 
-export const BlogHeading3 = ({ children }) => {
+export const BlogHeading3 = ({ children, ...props }) => {
   return (
     <Heading
       style={{ fontFamily: BLOG_FONT }}
@@ -23,6 +24,7 @@ export const BlogHeading3 = ({ children }) => {
       fontWeight="bold"
       marginTop={10}
       marginBottom={3}
+      {...props}
     >
       {children}
     </Heading>

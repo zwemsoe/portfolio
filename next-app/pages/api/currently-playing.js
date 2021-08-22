@@ -14,15 +14,14 @@ export default async function handler(req, res) {
         },
       });
     } else {
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         error: 'Probably listing to podcast',
       });
     }
   } catch (err) {
-    return res.status(400).json({
+    return res.status(200).json({
       success: false,
-      code: err.status,
       error: err.message,
     });
   }

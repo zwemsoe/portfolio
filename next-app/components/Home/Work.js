@@ -16,6 +16,7 @@ import WorkTimeline from './WorkTimeline';
 import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
 import { DiMongodb } from 'react-icons/di';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
+import { HOME_VIEW } from '@/constants';
 
 const skills = [
   {
@@ -51,7 +52,7 @@ export default function Work() {
       onClick={() => {
         dispatch({
           type: SET_PAGE,
-          page: 3,
+          page: HOME_VIEW.CONTACT,
         });
       }}
     >
