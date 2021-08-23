@@ -7,3 +7,4 @@ export const HOME_VIEW = {
 };
 export const BLOG_DB = 'blog-db';
 export const BLOGS_COLLECTION = 'blogs';
+export const BLOGS_DEV_COLLECTION = 'blogs-dev';

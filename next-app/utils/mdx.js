@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-// import matter from 'gray-matter';
+import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
@@ -13,8 +13,20 @@ export const getMDXFile = (fileName) => {
   return fs.readFileSync(path.join(BLOGS_PATH, fileName));
 };
 
-export const getAllBlogs = async () => {
-  return fs.readdirSync(BLOGS_PATH);
+export const getAllBlogs = () => {
+  return fs
+    .readdirSync(BLOGS_PATH)
+    .filter((path) => /\.mdx?$/.test(path))
+    .map((fileName) => {
+      const source = getMDXFile(fileName);
+      const slug = fileName.replace(/\.mdx?$/, '');
+      const { data } = matter(source);
+
+      return {
+        frontmatter: data,
+        slug: slug,
+      };
+    });
 };
 
 export const getSingleBlog = async (slug) => {

@@ -1,7 +1,7 @@
 ---
 title: 'Create a Todo app with ReactJS'
-summary: 'This is a tutorial on how to create a todo app using ReactJS and store in local storage'
-publishedAt: '08-18-2021'
+summary: 'A tutorial on how to create a todo app using ReactJS and store in local storage.'
+publishedAt: '08-23-2021'
 tags: ['Frontend', 'ReactJS', 'CRA', 'HTML', 'CSS', 'JavaScript']
 image: '/images/blog/react-code.jpg'
 ---
@@ -14,7 +14,7 @@ image: '/images/blog/react-code.jpg'
   priority
 />
 
-In this tutorial, you'll learn how to create a todo app using create-react-app and store your todo items persistently in your browser's local storage. This tutorial is beginner-friendly and primarily focuses on the functionality part of the app rather than styling and design.
+In this tutorial, you'll learn how to create a todo app using create-react-app and store your todo items persistently in your browser's local storage. You'll also learn a bit about React hooks (useState) and component lifecycle. This tutorial is beginner-friendly and primarily focuses on the functionality part of the app rather than styling and design.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to create a todo app using create-react-app a
 
 ## Create React App
 
-[Create React App](https://create-react-app.dev/) (CRA) is one of the easiest ways to create a React project and the [recommended way](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) by the official React team. It provides the pre-configured setup for bundling your files and a boilerplate for your project.
+[Create React App](https://create-react-app.dev/) (CRA) is one of the easiest ways to create a React project and the [recommended way](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) by the official React team for beginners. It provides the pre-configured setup for bundling your files and a boilerplate for your project.
 
 To get started, open up your terminal on whichever directory you prefer and run:
 
@@ -38,17 +38,17 @@ cd todo-app
 npm start
 ```
 
-This will start your development server on http://localhost:3000. If you see an animated React icon on the screen, you're good to go.
+This will start your development server on `http://localhost:3000`. If you see an animated React icon on the screen, you're good to go.
 
 Now, let's explore the folder structure and some of the key files in it.
 
 The project is structured into two main folders: `public` and `src` .
-`public` contains all the assets like images, favicons, html files and etc. We won't need to concern ourselves with this folder.
-`src` folder is where we put all our javascript files and write our logic.
+The `public` contains all the assets like images, favicons, html files and etc. We won't need to concern ourselves with this folder.
+The `src` folder is where we put all our javascript files and write our logic.
 
 To understand how React renders the page, we need to look at the files: `index.js` , `App.js` , and `index.html` .
 
-Inside `App.js` , we see the function App the returns the HTML content that is displayed o the screen. In React, this sort of function is referred to as **component**.
+Inside `App.js` , we see the function App the returns the HTML content that is displayed on the screen. In React, this sort of function is referred to as **component**.
 
 <CodeFile children="App.js" />
 
@@ -80,7 +80,7 @@ function App() {
 export default App;
 ```
 
-Next, `index.js` takes this App component and calls or renders it inside the DOM element with an id called "root". You can file this element (which is a div) inside index.html file.
+Next, `index.js` takes this App component and calls or renders it inside the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#what_is_the_dom) element with an id called "root". You can find this element (which is a div) inside `index.html` file.
 
 <CodeFile children="index.js" />
 
@@ -185,7 +185,7 @@ function App() {
 export default App;
 ```
 
-`useState` is a special function provided by React to watches the state variables across function calls or renders. Whereas, a normal function would "forget" after function call ends.
+`useState` is a special function, provided by React, that watches the state variables across function calls or renders. Whereas, a normal function would "forget" after function call ends.
 
 ```js
 const [todos, setTodos] = useState([]);
@@ -193,7 +193,7 @@ const [todos, setTodos] = useState([]);
 
 In this line, `useState` gives you state variable called `todos` which is set to `[]` (empty array) and `setTodos` function that lets you change state of `todos`.
 
-[Note: You might notice a key being provided on div inside map function. The reason of the beyond the scope of this article but if you can read more about it here.]
+[Note: You might notice a key being provided on div inside map function. The reason of it is beyond the scope of this article but if you can read more about it [here](https://reactjs.org/docs/lists-and-keys.html#keys).]
 
 Now, let's go ahead with implementing adding and deleting functions for todos.
 
@@ -226,7 +226,7 @@ const handleAdd = () => {
 };
 ```
 
-`[...todos, inputValue]` this is a fancy way to append a new value into an array.
+`[...todos, inputValue]` -> this is a fancy way to append a new value into an array.
 
 ### Deleting todo items
 
@@ -238,7 +238,7 @@ const handleDelete = (index) => {
 };
 ```
 
-This function first creates a new copy of current `todos` state variable and removes it and set new state of `todos`. A new copy must be created since React does not allow modify a state variable directly.
+This function first creates a new copy of current `todos` state variable, removes it and set new state of `todos`. A new copy must be created since React does not allow direct modification to state variable.
 
 The approach here is to remove the item by supplying its index so we can call the delete function inside the map function and pass item index as argument.
 
@@ -297,14 +297,14 @@ export default App;
 
 <CustomImage
   alt={`Without LS gif`}
-  src={`/gifs/without-ls.gif`}
+  src={`/gifs/blog/without-ls.gif`}
   width={800}
   height={400}
 />
 
 ### Slight problem
 
-You'll notice that everything is working as expected except when you refresh the page, everything resets. The reason for this, React has something called **Component Lifecycle.**
+You'll notice that everything is working as expected except when you refresh the page, everything resets. The reason is React has something called **Component Lifecycle.**
 
 When the page refreshes, the component gets "destroyed" and "created" again. The technical terms are **unmount** and **mount**.
 
@@ -314,9 +314,9 @@ React state **does not persist** on page refresh.
 
 We'll use LocalStorage which is easy to use and can persist data on the browser.
 
-LocalStorage stores data in a form of key and value pair and both need to be in string format.
+LocalStorage stores data in a form of key-value pair and both need to be in string format.
 
-We'll create two functions retrieving and updating localstorage:
+We'll create two functions for retrieving and updating localstorage:
 
 ```js
 const TODO_KEY = 'todos';
@@ -331,9 +331,9 @@ const updateLocalStorage = (todos) => {
 };
 ```
 
-Since data needs to be string format, I'm stringifying when updating and parsing it back when retrieving.
+Since data needs to be string format, we need to stringify when updating and parse it back when retrieving.
 
-Now we'll use these function inside our App component. Instead of setting initial value of todos to empty array, we'll first check if there's anything in localstorage and assign accordingly.
+Now we'll use these functions inside our App component. Instead of setting initial value of todos to empty array, we'll first check if there's anything in localstorage and assign accordingly.
 
 Likewise when updating todos, we will also update localstorage.
 
@@ -417,7 +417,7 @@ export default App;
 
 <CustomImage
   alt={`With LS gif`}
-  src={`/gifs/with-ls.gif`}
+  src={`/gifs/blog/with-ls.gif`}
   width={800}
   height={400}
 />
@@ -430,6 +430,8 @@ Some project ideas I can think of to expand on this:
 - Making this app into a full-stack app and store on an actually database
 - Incorporating an authentication system so that users can login or signup
 - Creating deadlines or time intervals to todo items
+
+The list goes on...
 
 ## Resources
 

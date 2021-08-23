@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
 import Components from '@/components/MDXComponents';
-
 import BlogContainer from '@/components/BlogContainer';
 
 const Blog = ({ code, frontmatter, read_time, slug }) => {
@@ -22,11 +21,11 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const blogs = await getAllBlogs();
+  const blogs = getAllBlogs();
   return {
-    paths: blogs.map((b) => ({
+    paths: blogs.map(({ slug }) => ({
       params: {
-        slug: b.replace(/\.mdx/, ''),
+        slug,
       },
     })),
     fallback: false,
