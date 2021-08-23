@@ -62,7 +62,6 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(err.status || 400).json({
       success: false,
-      code: err.code,
       error: err.message,
     });
   }

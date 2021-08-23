@@ -1,16 +1,12 @@
-import Head from 'next/head';
-import styles from '@/styles/Error.module.scss';
 import { Heading } from '@chakra-ui/react';
+import AppContainer from '@/components/AppContainer';
 
 export default function Custom404() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>404</title>
-      </Head>
+    <AppContainer customMeta={{ title: '404' }}>
       <Heading size="xl" fontWeight="normal" color="white">
         404 - Page Not Found.
       </Heading>
-    </div>
+    </AppContainer>
   );
 }

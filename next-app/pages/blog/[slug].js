@@ -1,38 +1,33 @@
-import React from 'react';
-import Head from 'next/head';
+import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import styles from '@/styles/Blog.module.scss';
-import { Heading, Box, Center } from '@chakra-ui/react';
-
 import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
+import Components from '@/components/MDXComponents';
+import BlogContainer from '@/components/BlogContainer';
 
-const Blog = ({ code, frontmatter }) => {
-  const { title, slug } = frontmatter;
-  const MDXComponent = React.useMemo(() => getMDXComponent(code), [code]);
+const Blog = ({ code, frontmatter, read_time, slug }) => {
+  const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>{slug}</title>
-      </Head>
-      <Heading size="xl" fontWeight="normal" color="white">
-        {title}
-      </Heading>
-      <MDXComponent />
-    </div>
+    <BlogContainer frontmatter={frontmatter} read_time={read_time} slug={slug}>
+      <MDXComponent components={{ ...Components }} />
+    </BlogContainer>
   );
 };
 
 export const getStaticProps = async ({ params }) => {
   const blog = await getSingleBlog(params.slug);
   return {
-    props: { ...blog },
+    props: { ...blog, slug: params.slug },
   };
 };
 
 export const getStaticPaths = async () => {
-  const paths = getAllBlogs().map(({ slug }) => ({ params: { slug } }));
+  const blogs = getAllBlogs();
   return {
-    paths,
+    paths: blogs.map(({ slug }) => ({
+      params: {
+        slug,
+      },
+    })),
     fallback: false,
   };
 };

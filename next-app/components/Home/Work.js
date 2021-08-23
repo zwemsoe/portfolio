@@ -16,6 +16,7 @@ import WorkTimeline from './WorkTimeline';
 import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
 import { DiMongodb } from 'react-icons/di';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
+import { HOME_VIEW } from '@/constants';
 
 const skills = [
   {
@@ -40,7 +41,7 @@ const skills = [
   },
 ];
 
-export default function Dev() {
+export default function Work() {
   const [{ page }, dispatch] = useStateContext();
   const { isLargeScreen } = useScreenWidth();
   const mobileIconSize = { width: '2em', height: '2em' };
@@ -51,7 +52,7 @@ export default function Dev() {
       onClick={() => {
         dispatch({
           type: SET_PAGE,
-          page: 3,
+          page: HOME_VIEW.CONTACT,
         });
       }}
     >
@@ -73,7 +74,12 @@ export default function Dev() {
         <Center>
           <HStack spacing={35}>
             {skills.map((item) => (
-              <Icon as={item.icon} style={iconSize} color={item.color} />
+              <Icon
+                key={item.label}
+                as={item.icon}
+                style={iconSize}
+                color={item.color}
+              />
             ))}
           </HStack>
         </Center>

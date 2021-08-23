@@ -1,7 +1,5 @@
 import { useRef, useEffect } from 'react';
-import Head from 'next/head';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import styles from '@/styles/Home.module.scss';
 import { useStateContext } from '@/utils/provider';
 import {
   ScrollProgress,
@@ -11,6 +9,7 @@ import {
   ContactMe,
 } from '@/components/Home';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
+import AppContainer from '@/components/AppContainer';
 
 export default function Home() {
   const parallaxRef = useRef();
@@ -22,16 +21,8 @@ export default function Home() {
   }, [page]);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Home</title>
-        <meta
-          name="description"
-          content="Zwe Min Soe Personal Portfolio Website"
-        />
-      </Head>
+    <AppContainer>
       {isLargeScreen && <ScrollProgress />}
-
       <Parallax
         ref={parallaxRef}
         pages={4}
@@ -94,6 +85,6 @@ export default function Home() {
           <ContactMe />
         </ParallaxLayer>
       </Parallax>
-    </div>
+    </AppContainer>
   );
 }

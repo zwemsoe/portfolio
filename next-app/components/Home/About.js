@@ -4,6 +4,7 @@ import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
 import myPic from '@/public/images/my-pic.png';
 import NextLink from '../NextLink';
+import { HOME_VIEW } from '@/constants';
 
 export default function About() {
   const [{ page }, dispatch] = useStateContext();
@@ -12,12 +13,19 @@ export default function About() {
       onClick={() => {
         dispatch({
           type: SET_PAGE,
-          page: 2,
+          page: HOME_VIEW.WORK,
         });
       }}
     >
       <HStack spacing={{ base: 5, md: 10, lg: 20, xl: 50 }}>
-        <Image src={myPic} alt="Me!" width={1500} height={1500} quality={100} />
+        <Image
+          src={myPic}
+          alt="Me!"
+          width={1500}
+          height={1500}
+          quality={100}
+          priority
+        />
         <Stack>
           <Heading size="xl" fontWeight="bold" color="light">
             ABOUT ME

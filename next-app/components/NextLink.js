@@ -8,6 +8,7 @@ export default function NextLink({
   isExternal,
   underline = false,
   style = {},
+  ...props
 }) {
   const defaultStyle = {
     color: color || 'black',
@@ -20,7 +21,8 @@ export default function NextLink({
         className={underline ? 'next-link-underline' : 'next-link'}
         style={{ ...defaultStyle, ...style }}
         target={isExternal ? '_blank' : '_self'}
-        rel="noreferrer"
+        rel="noopener noreferrer"
+        {...props}
       >
         {children}
       </a>

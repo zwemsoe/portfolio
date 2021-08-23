@@ -5,7 +5,9 @@
         "@/components/*": ["components/*"],
         "@/styles/*": ["styles/*"],
         "@/public/*": ["public/*"],
-        "@/utils/*": ["utils/*"]
+        "@/utils/*": ["utils/*"],
+        "@/middlewares/*": ["middlewares/*"],
+        "@/constants": ["constants/index.js"]
       }
     }
   }

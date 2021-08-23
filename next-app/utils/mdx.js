@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import readingTime from 'reading-time';
 
 export const BLOGS_PATH = path.join(process.cwd(), 'mdx/blogs');
 
@@ -20,7 +24,7 @@ export const getAllBlogs = () => {
 
       return {
         frontmatter: data,
-        slug,
+        slug: slug,
       };
     });
 };
@@ -30,10 +34,30 @@ export const getSingleBlog = async (slug) => {
 
   const { code, frontmatter } = await bundleMDX(source, {
     cwd: BLOGS_PATH,
+    xdmOptions(options) {
+      options.rehypePlugins = [
+        ...(options?.rehypePlugins ?? []),
+        rehypeSlug,
+        rehypePrism,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'wrap',
+            properties: {
+              className: ['anchor'],
+            },
+          },
+        ],
+      ];
+      return options;
+    },
   });
+
+  const read_time = readingTime(code);
 
   return {
     frontmatter,
     code,
+    read_time: read_time.text,
   };
 };
