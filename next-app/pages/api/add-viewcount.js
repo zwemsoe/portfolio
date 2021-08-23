@@ -14,7 +14,7 @@ handler.post(async (req, res) => {
     if (found) {
       await req.db
         .collection(BLOGS_COLLECTION)
-        .update({ slug }, { $inc: { viewCount: 1 } });
+        .updateOne({ slug }, { $inc: { viewCount: 1 } });
       views = found.viewCount + 1;
     } else {
       const doc = { slug, viewCount: 1 };
