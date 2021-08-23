@@ -1,5 +1,4 @@
-import nextConnect from 'next-connect';
-import connectDB from '@/middlewares/db';
+import connectToMongoDB from '@/middlewares/db';
 import { BLOGS_COLLECTION, BLOGS_DEV_COLLECTION } from '@/constants';
 
 const collection =
@@ -7,14 +6,11 @@ const collection =
     ? BLOGS_DEV_COLLECTION
     : BLOGS_COLLECTION;
 
-const handler = nextConnect();
-
-handler.use(connectDB);
-
-handler.post(async (req, res) => {
+export default async function handler(req, res) {
   try {
+    const db = await connectToMongoDB();
     const { slug } = req.body;
-    const found = await req.db.collection(collection).findOne({ slug });
+    const found = await db.collection(collection).findOne({ slug });
     return res.status(200).json({ success: true, viewCount: found.viewCount });
   } catch (err) {
     return res.status(500).json({
@@ -22,6 +18,4 @@ handler.post(async (req, res) => {
       error: err.message,
     });
   }
-});
-
-export default handler;
+}

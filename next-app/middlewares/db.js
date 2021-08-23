@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-import nextConnect from 'next-connect';
 import { BLOG_DB } from '@/constants';
 
 const client = new MongoClient(process.env.MONGODB_URL, {
@@ -7,15 +6,9 @@ const client = new MongoClient(process.env.MONGODB_URL, {
   useUnifiedTopology: true,
 });
 
-async function db(req, res, next) {
+async function connectToMongoDB() {
   await client.connect();
-  req.dbClient = client;
-  req.db = client.db(BLOG_DB);
-  return next();
+  return client.db(BLOG_DB);
 }
 
-const middleware = nextConnect();
-
-middleware.use(db);
-
-export default middleware;
+export default connectToMongoDB;
