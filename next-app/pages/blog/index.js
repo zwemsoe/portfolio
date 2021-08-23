@@ -54,7 +54,6 @@ export default function Blog({ blogs }) {
         new_views[blog.slug] = viewCount;
         setViews(new_views);
       }
-      console.log(views);
     } catch (err) {
       console.log(err);
     }

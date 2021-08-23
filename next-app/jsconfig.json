@@ -7,7 +7,6 @@
         "@/public/*": ["public/*"],
         "@/utils/*": ["utils/*"],
         "@/middlewares/*": ["middlewares/*"],
-        "@/models/*": ["models/*"],
         "@/constants": ["constants/index.js"]
       }
     }
