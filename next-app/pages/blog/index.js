@@ -26,9 +26,9 @@ const BlogCard = ({ blog, views }) => {
           <Text size="md" color="yellow" fontWeight="medium">
             {blog.frontmatter.summary}
           </Text>
-          <Text size="md" color="light" fontWeight="medium">
+          {/* <Text size="md" color="light" fontWeight="medium">
             {format(new Date(blog.frontmatter.publishedAt), 'MMMM dd, yyyy')}
-          </Text>
+          </Text> */}
         </Stack>
       </NextLink>
     </Box>
@@ -63,7 +63,7 @@ export default function Blog({ blogs }) {
     <AppContainer
       containerClass={styles.container}
       title="Blog"
-      description="Zwe Min Soe blogs. I write about web development tips and tricks."
+      description="I write about web development tips and tricks."
     >
       <Heading size="xl" fontWeight="bold" color="white" marginBottom={10}>
         All Posts
