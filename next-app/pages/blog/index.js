@@ -6,6 +6,7 @@ import AppContainer from '@/components/AppContainer';
 import { getAllBlogs } from '@/utils/mdx';
 import postAPI from '@/utils/postAPI';
 import NextLink from '@/components/NextLink';
+import formatNumber from '@/utils/formatNumber';
 
 const BlogCard = ({ blog, views }) => {
   return (
@@ -18,7 +19,7 @@ const BlogCard = ({ blog, views }) => {
             </Heading>
             <Center>
               <Text size="lg" color="light" fontWeight="medium">
-                {views[blog.slug] ?? 0} views
+                {formatNumber(views[blog.slug]) ?? 0} views
               </Text>
             </Center>
           </Flex>

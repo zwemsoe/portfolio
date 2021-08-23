@@ -11,7 +11,9 @@ export default async function handler(req, res) {
     const db = await connectToMongoDB();
     const { slug } = req.body;
     const found = await db.collection(collection).findOne({ slug });
-    return res.status(200).json({ success: true, viewCount: found.viewCount });
+    return res
+      .status(200)
+      .json({ success: true, viewCount: found ? found.viewCount : 0 });
   } catch (err) {
     return res.status(500).json({
       success: false,

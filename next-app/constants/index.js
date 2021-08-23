@@ -5,6 +5,6 @@ export const HOME_VIEW = {
   WORK: 2,
   CONTACT: 3,
 };
-export const BLOG_DB = 'blog-db';
+export const BLOG_DB = 'blogs-db';
 export const BLOGS_COLLECTION = 'blogs';
 export const BLOGS_DEV_COLLECTION = 'blogs-dev';
