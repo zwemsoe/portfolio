@@ -38,12 +38,6 @@ export default function AppContainer({
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        {meta.publishedDate && (
-          <meta
-            property="article:published_time"
-            content={meta.publishedDate}
-          />
-        )}
       </Head>
       <main className={containerClass} style={{ ...containerStyle }}>
         {children}

@@ -45,7 +45,6 @@ export default function BlogContainer({
       description={frontmatter.summary}
       image={`https://zweminsoe.com${frontmatter.image}`}
       type="article"
-      publishedDate={new Date(frontmatter.publishedAt).toISOString()}
     >
       <article style={{ marginTop: 20 }}>
         <Heading
