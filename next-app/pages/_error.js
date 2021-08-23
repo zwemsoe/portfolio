@@ -1,13 +1,12 @@
 function Error({ statusCode, err }) {
   return (
     <>
-      <p>
+      <p style={{ color: 'white' }}>
         {statusCode
           ? `An error ${statusCode} occurred on server`
           : 'An error occurred on client'}
       </p>
       <p style={{ color: 'white' }}>{err.message}</p>
-      <p style={{ color: 'white' }}>{JSON.stringify(err)}</p>
     </>
   );
 }

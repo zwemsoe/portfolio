@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { Heading, Text, Tag, Button, Divider } from '@chakra-ui/react';
 import styles from '@/styles/Blog.module.scss';
 import AppContainer from '@/components/AppContainer';
@@ -45,6 +45,7 @@ export default function BlogContainer({
       description={frontmatter.summary}
       image={`https://zweminsoe.com${frontmatter.image}`}
       type="article"
+      publishedDate={new Date(frontmatter.publishedAt).toISOString()}
     >
       <article style={{ marginTop: 20 }}>
         <Heading
@@ -65,7 +66,7 @@ export default function BlogContainer({
           marginBottom={4}
         >
           {`${format(
-            new Date(frontmatter.publishedAt),
+            parseISO(frontmatter.publishedAt),
             'MMMM dd, yyyy'
           )} | ${read_time} | ${formatNumber(views)} views`}
         </Text>

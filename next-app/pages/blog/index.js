@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import styles from '@/styles/Blogs.module.scss';
 import { Heading, Box, Center, Text, Stack, Flex } from '@chakra-ui/react';
 import AppContainer from '@/components/AppContainer';
@@ -18,17 +18,25 @@ const BlogCard = ({ blog, views }) => {
               {blog.frontmatter.title}
             </Heading>
             <Center>
-              <Text size="lg" color="light" fontWeight="medium">
-                {formatNumber(views[blog.slug]) ?? 0} views
+              <Text
+                color="light"
+                fontWeight="medium"
+                fontSize={{ base: '14px', md: '18px', lg: '20px' }}
+              >
+                {`${formatNumber(views[blog.slug]) ?? 0} views`}
               </Text>
             </Center>
           </Flex>
-          <Text size="md" color="yellow" fontWeight="medium">
+          <Text
+            fontSize={{ base: '14px', md: '18px', lg: '20px' }}
+            color="yellow"
+            fontWeight="medium"
+          >
             {blog.frontmatter.summary}
           </Text>
-          {/* <Text size="md" color="light" fontWeight="medium">
-            {format(new Date(blog.frontmatter.publishedAt), 'MMMM dd, yyyy')}
-          </Text> */}
+          <Text size="md" color="light" fontWeight="medium">
+            {format(parseISO(blog.frontmatter.publishedAt), 'MMMM dd, yyyy')}
+          </Text>
         </Stack>
       </NextLink>
     </Box>
