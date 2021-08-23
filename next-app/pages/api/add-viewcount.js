@@ -1,4 +1,4 @@
-import connectToMongoDB from '@/middlewares/db';
+import connectToMongoDB from '@/utils/connectDB';
 import { BLOGS_COLLECTION, BLOGS_DEV_COLLECTION } from '@/constants';
 
 const collection =

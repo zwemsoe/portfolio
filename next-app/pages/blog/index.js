@@ -14,27 +14,31 @@ const BlogCard = ({ blog, views }) => {
       <NextLink href={`/blog/${blog.slug}`}>
         <Stack m="5">
           <Flex flexDirection="row" justifyContent="space-between">
-            <Heading size="lg" color="light" fontWeight="bold">
+            <Heading
+              fontSize={{ base: '18px', md: '23px', lg: '26px' }}
+              color="light"
+              fontWeight="bold"
+            >
               {blog.frontmatter.title}
             </Heading>
             <Center>
               <Text
                 color="light"
                 fontWeight="medium"
-                fontSize={{ base: '14px', md: '18px', lg: '20px' }}
+                fontSize={{ base: '15px', md: '18px', lg: '18px' }}
               >
                 {`${formatNumber(views[blog.slug]) ?? 0} views`}
               </Text>
             </Center>
           </Flex>
           <Text
-            fontSize={{ base: '14px', md: '18px', lg: '20px' }}
+            fontSize={{ base: '13px', md: '16px', lg: '17px' }}
             color="yellow"
             fontWeight="medium"
           >
             {blog.frontmatter.summary}
           </Text>
-          <Text size="md" color="light" fontWeight="medium">
+          <Text size="sm" color="light" fontWeight="medium">
             {format(parseISO(blog.frontmatter.publishedAt), 'MMMM dd, yyyy')}
           </Text>
         </Stack>

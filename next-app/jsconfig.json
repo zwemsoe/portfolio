@@ -6,7 +6,6 @@
         "@/styles/*": ["styles/*"],
         "@/public/*": ["public/*"],
         "@/utils/*": ["utils/*"],
-        "@/middlewares/*": ["middlewares/*"],
         "@/constants": ["constants/index.js"]
       }
     }
