@@ -3,8 +3,8 @@ import { format, parseISO } from 'date-fns';
 import styles from '@/styles/Blogs.module.scss';
 import { Heading, Box, Center, Text, Stack, Flex } from '@chakra-ui/react';
 import AppContainer from '@/components/AppContainer';
-import { getAllBlogs } from '@/utils/mdx';
-import postAPI from '@/utils/postAPI';
+import { getAllBlogs } from '@/lib/mdx';
+import requestAPI from '@/utils/requestAPI';
 import NextLink from '@/components/NextLink';
 import formatNumber from '@/utils/formatNumber';
 
@@ -57,10 +57,9 @@ export default function Blog({ blogs }) {
   const fetchViewCounts = async () => {
     try {
       for (let blog of blogs) {
-        const { viewCount } = await postAPI({
-          method: 'POST',
-          endpoint: '/api/fetch-views',
-          data: { slug: blog.slug },
+        const { viewCount } = await requestAPI({
+          method: 'GET',
+          endpoint: `/api/views/${blog.slug}`,
         });
         const new_views = { ...views };
         new_views[blog.slug] = viewCount;

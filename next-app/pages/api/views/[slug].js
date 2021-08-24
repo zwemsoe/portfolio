@@ -1,4 +1,4 @@
-import connectToMongoDB from '@/utils/connectDB';
+import connectToMongoDB from '@/lib/db';
 import { BLOGS_COLLECTION, BLOGS_DEV_COLLECTION } from '@/constants';
 
 const collection =
@@ -8,8 +8,8 @@ const collection =
 
 export default async function handler(req, res) {
   try {
-    const db = await connectToMongoDB();
-    const { slug } = req.body;
+    const { db } = await connectToMongoDB();
+    const { slug } = req.query;
     const found = await db.collection(collection).findOne({ slug });
     return res
       .status(200)

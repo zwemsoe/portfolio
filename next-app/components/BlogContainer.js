@@ -8,7 +8,7 @@ import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
 import NextLink from '@/components/NextLink';
 import { HOME_VIEW } from '@/constants';
-import postAPI from '@/utils/postAPI';
+import requestAPI from '@/utils/requestAPI';
 import formatNumber from '@/utils/formatNumber';
 
 export default function BlogContainer({
@@ -21,14 +21,14 @@ export default function BlogContainer({
   const [views, setViews] = useState(0);
 
   useEffect(() => {
-    fetchViewCount();
+    updateViewCount();
   }, []);
 
-  const fetchViewCount = async () => {
+  const updateViewCount = async () => {
     try {
-      const { viewCount } = await postAPI({
+      const { viewCount } = await requestAPI({
         method: 'POST',
-        endpoint: '/api/add-viewcount',
+        endpoint: '/api/views/update',
         data: { slug },
       });
       setViews(viewCount);

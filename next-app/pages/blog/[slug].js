@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import { getAllBlogs, getSingleBlog } from '@/utils/mdx';
+import { getAllBlogs, getSingleBlog } from '@/lib/mdx';
 import Components from '@/components/MDXComponents';
 import BlogContainer from '@/components/BlogContainer';
 
