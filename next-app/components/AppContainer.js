@@ -21,7 +21,7 @@ export default function AppContainer({
     <div style={{ marginBottom: 50 }}>
       <Head>
         <title>{meta.title}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />

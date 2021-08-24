@@ -48,7 +48,7 @@ The `src` folder is where we put all our javascript files and write our logic.
 
 To understand how React renders the page, we need to look at the files: `index.js` , `App.js` , and `index.html` .
 
-Inside `App.js` , we see the function App the returns the HTML content that is displayed on the screen. In React, this sort of function is referred to as **component**.
+Inside `App.js` , we see the function App that returns the HTML content that is displayed on the screen. In React, this sort of function is referred to as **component**.
 
 <CodeFile children="App.js" />
 
@@ -80,7 +80,7 @@ function App() {
 export default App;
 ```
 
-Next, `index.js` takes this App component and calls or renders it inside the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#what_is_the_dom) element with an id called "root". You can find this element (which is a div) inside `index.html` file.
+Next, `index.js` takes this App component and calls or renders it inside the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#what_is_the_dom) element with an id called "root".
 
 <CodeFile children="index.js" />
 
@@ -97,6 +97,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+You can find this DOM element inside `index.html` file as a div with id "root". Essentially, React is taking HTML returned from `App.js` and pasting it inside that div with id="root".
 
 <CodeFile children="index.html" />
 
@@ -116,8 +118,6 @@ ReactDOM.render(
     -->
 </body>
 ```
-
-Essentially, React is taking HTML returned from App and pasting it inside that div with id="root".
 
 ## Implementation
 
@@ -241,6 +241,19 @@ const handleDelete = (index) => {
 This function first creates a new copy of current `todos` state variable, removes it and set new state of `todos`. A new copy must be created since React does not allow direct modification to state variable.
 
 The approach here is to remove the item by supplying its index so we can call the delete function inside the map function and pass item index as argument.
+
+```js
+<ul>
+  {todos.map((item, index) => {
+    return (
+      <div key={item} className="row">
+        <li>{item}</li>
+        <button onClick={() => handleDelete(index)}>Delete</button>
+      </div>
+    );
+  })}
+</ul>
+```
 
 ### Finally, we have this:
 
@@ -427,7 +440,7 @@ export default App;
 Some project ideas I can think of to expand on this:
 
 - Implementing better UI
-- Making this app into a full-stack app and store on an actually database
+- Making this app into a full-stack app and store on an actual database
 - Incorporating an authentication system so that users can login or signup
 - Creating deadlines or time intervals to todo items
 
