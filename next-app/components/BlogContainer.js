@@ -41,11 +41,13 @@ export default function BlogContainer({
     <AppContainer
       containerClass={styles.container}
       containerStyle={{ color: 'white', fontFamily: BLOG_FONT }}
-      title={frontmatter.title}
-      description={frontmatter.summary}
-      image={`https://zweminsoe.com${frontmatter.image}`}
-      type="article"
-      publishedDate={new Date(frontmatter.publishedAt).toISOString()}
+      customMeta={{
+        title: frontmatter.title,
+        description: frontmatter.summary,
+        image: `https://zweminsoe.com${frontmatter.image}`,
+        type: 'article',
+        publishedDate: new Date(frontmatter.publishedAt).toISOString(),
+      }}
     >
       <article style={{ marginTop: 20 }}>
         <Heading
