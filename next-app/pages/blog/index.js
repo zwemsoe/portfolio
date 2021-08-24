@@ -73,8 +73,10 @@ export default function Blog({ blogs }) {
   return (
     <AppContainer
       containerClass={styles.container}
-      title="Blog"
-      description="I write about web development tips and tricks."
+      customMeta={{
+        title: 'Blog',
+        description: 'I write about web development tips and tricks.',
+      }}
     >
       <Heading size="xl" fontWeight="bold" color="white" marginBottom={10}>
         All Posts
