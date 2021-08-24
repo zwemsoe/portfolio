@@ -1,13 +1,16 @@
+import { Heading } from '@chakra-ui/react';
+import AppContainer from '@/components/AppContainer';
+
 function Error({ statusCode, err }) {
+  console.log(err.message);
   return (
-    <>
-      <p style={{ color: 'white' }}>
+    <AppContainer customMeta={{ title: 'Error' }}>
+      <Heading size="xl" fontWeight="normal" color="white">
         {statusCode
           ? `An error ${statusCode} occurred on server`
           : 'An error occurred on client'}
-      </p>
-      <p style={{ color: 'white' }}>{err.message}</p>
-    </>
+      </Heading>
+    </AppContainer>
   );
 }
 

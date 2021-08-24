@@ -21,13 +21,15 @@ export default function AppContainer({
     <div style={{ marginBottom: 50 }}>
       <Head>
         <title>{meta.title}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
           content={`https://zweminsoe.soe${router.asPath}`}
         />
-        <link rel="canonical" href={`https://zweminsoe.soe${router.asPath}`} />
+        <link rel="canonical" href={`https://zweminsoe.com${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Zwe Min Soe" />
         <meta property="og:description" content={meta.description} />

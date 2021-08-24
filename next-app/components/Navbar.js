@@ -19,7 +19,7 @@ import NextLink from './NextLink';
 import { HOME_VIEW } from '@/constants';
 
 const RESUME_LINK =
-  'https://drive.google.com/file/d/1nZAXFMMI1c1U2UtzI_dbeoewk4HBvmqI/view';
+  'https://drive.google.com/file/d/16xmaBgQ1pRf-l_l5hFT7_8MsALttJRoX/view?usp=sharing';
 
 export default function Navbar() {
   const { isLargeScreen } = useScreenWidth();
@@ -118,6 +118,7 @@ const MobileNav = () => {
     <Menu>
       <MenuButton
         colorScheme="none"
+        alt="Menu Button"
         as={IconButton}
         icon={<Icon as={HiMenu} w={6} h={6} color="white" />}
       />

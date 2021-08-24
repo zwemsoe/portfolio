@@ -1,4 +1,4 @@
-import { getCurrentTrack } from '@/utils/spotify';
+import { getCurrentTrack } from '@/lib/spotify';
 
 export default async function handler(req, res) {
   try {

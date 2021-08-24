@@ -1,7 +1,7 @@
-export default async function postAPI({
+export default async function requestAPI({
   method = 'POST',
   endpoint = '/',
-  data = {},
+  data,
 }) {
   const response = await fetch(endpoint, {
     method: method,
@@ -9,7 +9,7 @@ export default async function postAPI({
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: data ? JSON.stringify(data) : undefined,
   });
   return response.json();
 }
