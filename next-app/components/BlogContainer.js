@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import { Heading, Text, Tag, Button, Divider } from '@chakra-ui/react';
+import {
+  Heading,
+  Text,
+  Tag,
+  Button,
+  Divider,
+  Skeleton,
+  Flex,
+  useBoolean,
+} from '@chakra-ui/react';
 import styles from '@/styles/Blog.module.scss';
 import AppContainer from '@/components/AppContainer';
 import { BLOG_FONT } from '@/constants';
@@ -19,6 +28,7 @@ export default function BlogContainer({
 }) {
   const [{ page }, dispatch] = useStateContext();
   const [views, setViews] = useState(0);
+  const [viewsLoaded, setViewsLoaded] = useBoolean(false);
 
   useEffect(() => {
     updateViewCount();
@@ -32,6 +42,7 @@ export default function BlogContainer({
         data: { slug },
       });
       setViews(viewCount);
+      setViewsLoaded.on();
     } catch (err) {
       console.log(err);
     }
@@ -60,18 +71,32 @@ export default function BlogContainer({
           {frontmatter.title}
         </Heading>
 
-        <Text
-          fontSize="md"
-          fontWeight="normal"
-          color="white"
-          fontFamily={BLOG_FONT}
-          marginBottom={4}
-        >
-          {`${format(
-            parseISO(frontmatter.publishedAt),
-            'MMMM dd, yyyy'
-          )} | ${read_time} | ${formatNumber(views)} views`}
-        </Text>
+        <Flex flexDirection="row" justifyContent="space-between">
+          <Text
+            fontSize="md"
+            fontWeight="normal"
+            color="white"
+            fontFamily={BLOG_FONT}
+            marginBottom={4}
+          >
+            {`${format(
+              parseISO(frontmatter.publishedAt),
+              'MMMM dd, yyyy'
+            )} | ${read_time}`}
+          </Text>
+
+          <Skeleton startColor="yellow" height={8} isLoaded={viewsLoaded}>
+            <Text
+              fontSize="md"
+              fontWeight="medium"
+              color="yellow"
+              fontFamily={BLOG_FONT}
+              marginBottom={4}
+            >
+              {`${formatNumber(views)} views`}
+            </Text>
+          </Skeleton>
+        </Flex>
 
         <div style={{ marginBottom: 30 }}>
           {frontmatter.tags.map((tag) => (

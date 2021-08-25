@@ -9,6 +9,7 @@ import {
   Spacer,
   HStack,
   Center,
+  Tooltip,
 } from '@chakra-ui/react';
 import { useStateContext } from '@/utils/provider';
 import { SET_PAGE } from '@/utils/actions';
@@ -74,12 +75,11 @@ export default function Work() {
         <Center>
           <HStack spacing={35}>
             {skills.map((item) => (
-              <Icon
-                key={item.label}
-                as={item.icon}
-                style={iconSize}
-                color={item.color}
-              />
+              <Tooltip key={item.label} label={item.label} fontSize="md">
+                <span>
+                  <Icon as={item.icon} style={iconSize} color={item.color} />
+                </span>
+              </Tooltip>
             ))}
           </HStack>
         </Center>

@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import styles from '@/styles/Blogs.module.scss';
-import { Heading, Box, Center, Text, Stack, Flex } from '@chakra-ui/react';
+import {
+  Heading,
+  Box,
+  Center,
+  Text,
+  Stack,
+  Flex,
+  Skeleton,
+  useBoolean,
+} from '@chakra-ui/react';
 import AppContainer from '@/components/AppContainer';
 import { getAllBlogs } from '@/lib/mdx';
 import requestAPI from '@/utils/requestAPI';
 import NextLink from '@/components/NextLink';
 import formatNumber from '@/utils/formatNumber';
 
-const BlogCard = ({ blog, views }) => {
+const BlogCard = ({ blog, views, viewsLoaded }) => {
   return (
     <Box width="100%" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <NextLink href={`/blog/${blog.slug}`}>
@@ -22,13 +31,15 @@ const BlogCard = ({ blog, views }) => {
               {blog.frontmatter.title}
             </Heading>
             <Center>
-              <Text
-                color="light"
-                fontWeight="medium"
-                fontSize={{ base: '15px', md: '18px', lg: '18px' }}
-              >
-                {`${formatNumber(views[blog.slug]) ?? 0} views`}
-              </Text>
+              <Skeleton isLoaded={viewsLoaded}>
+                <Text
+                  color="light"
+                  fontWeight="medium"
+                  fontSize={{ base: '15px', md: '18px', lg: '18px' }}
+                >
+                  {`${formatNumber(views[blog.slug])} views`}
+                </Text>
+              </Skeleton>
             </Center>
           </Flex>
           <Text
@@ -49,6 +60,7 @@ const BlogCard = ({ blog, views }) => {
 
 export default function Blog({ blogs }) {
   const [views, setViews] = useState({});
+  const [viewsLoaded, setViewsLoaded] = useBoolean(false);
 
   useEffect(() => {
     fetchViewCounts();
@@ -65,6 +77,7 @@ export default function Blog({ blogs }) {
         new_views[blog.slug] = viewCount;
         setViews(new_views);
       }
+      setViewsLoaded.on();
     } catch (err) {
       console.log(err);
     }
@@ -82,7 +95,12 @@ export default function Blog({ blogs }) {
         All Posts
       </Heading>
       {blogs.map((blog) => (
-        <BlogCard key={blog.slug} blog={blog} views={views} />
+        <BlogCard
+          key={blog.slug}
+          blog={blog}
+          views={views}
+          viewsLoaded={viewsLoaded}
+        />
       ))}
     </AppContainer>
   );

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         track: {
           url: external_urls.spotify,
           name,
-          artists: artists.map((a) => a.name),
+          artist: artists[0].name,
         },
       });
     } else {

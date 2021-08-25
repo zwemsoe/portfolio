@@ -37,7 +37,7 @@ export default function Footer() {
               </Text>
               <Text color="yellow">
                 {data?.track
-                  ? `${data?.track.name} - ${data?.track.artists.join(', ')}`
+                  ? `${data?.track.name} - ${data?.track.artist}`
                   : ''}
               </Text>
             </VStack>
