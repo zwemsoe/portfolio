@@ -19,7 +19,7 @@ import NextLink from './NextLink';
 import { HOME_VIEW } from '@/constants';
 
 const RESUME_LINK =
-  'https://drive.google.com/file/d/16xmaBgQ1pRf-l_l5hFT7_8MsALttJRoX/view?usp=sharing';
+  'https://drive.google.com/file/d/1doCONkrme5_v29oaqI413MpoCREObBKc/view?usp=sharing';
 
 export default function Navbar() {
   const { isLargeScreen } = useScreenWidth();
