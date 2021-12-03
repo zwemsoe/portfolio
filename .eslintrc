@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "next",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react"],
+  "rules": {
+    "import/order": [
+      "error",
+      { "alphabetize": { "order": "asc", "caseInsensitive": true } }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "no-unused-vars": "warn",
+    "no-redeclare": "warn",
+    "react/jsx-key": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "tabWidth": 2
+      }
+    ],
+    "no-empty": "warn",
+    "react/no-string-refs": "warn",
+    "react/no-deprecated": "warn",
+    "no-console": "off",
+    "react/jsx-no-target-blank": "off",
+    "react/no-unknown-property": "off",
+    "react/no-unescaped-entities": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-case-declarations": "off",
+    "func-names": "off",
+    "no-process-env": "off",
+    "react/prop-types": "off"
+  }
+}
