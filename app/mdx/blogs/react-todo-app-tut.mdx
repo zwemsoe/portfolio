@@ -1,9 +1,9 @@
 ---
-title: 'Create a Todo app with ReactJS'
-summary: 'Tutorial on how to create a todo app using ReactJS and store in local storage.'
-publishedAt: '2021-08-23'
-tags: ['Frontend', 'ReactJS', 'CRA', 'HTML', 'CSS', 'JavaScript']
-image: '/images/blog/react-code.jpg'
+title: "Create a Todo app with ReactJS"
+summary: "Tutorial on how to create a todo app using ReactJS and store in local storage."
+publishedAt: "2021-08-23"
+tags: ["Frontend", "ReactJS", "CRA", "HTML", "CSS", "JavaScript"]
+image: "/images/blog/react-code.jpg"
 ---
 
 <CustomImage
@@ -50,25 +50,25 @@ To understand how React renders the page, we need to look at the files: `index.j
 
 Inside `App.js` , we see the function App that returns the HTML content that is displayed on the screen. In React, this sort of function is referred to as **component**.
 
-<CodeFile children="App.js" />
+<CodeFile children='App.js' />
 
 ```js
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          className='App-link'
+          href='https://reactjs.org'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Learn React
         </a>
@@ -82,25 +82,25 @@ export default App;
 
 Next, `index.js` takes this App component and calls or renders it inside the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#what_is_the_dom) element with an id called "root".
 
-<CodeFile children="index.js" />
+<CodeFile children='index.js' />
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
 You can find this DOM element inside `index.html` file as a div with id "root". Essentially, React is taking HTML returned from `App.js` and pasting it inside that div with id="root".
 
-<CodeFile children="index.html" />
+<CodeFile children='index.html' />
 
 ```html
 <body>
@@ -123,7 +123,7 @@ You can find this DOM element inside `index.html` file as a div with id "root". 
 
 ### Basic CSS
 
-<CodeFile children="App.css" />
+<CodeFile children='App.css' />
 
 ```css
 .App {
@@ -148,29 +148,29 @@ This is pretty much all the CSS classes we need. There's a class for centering t
 
 ### useState
 
-<CodeFile children="App.js" />
+<CodeFile children='App.js' />
 
 ```js
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
 
   return (
-    <div className="App">
+    <div className='App'>
       <div>
         <input
-          className="input-field"
-          type="text"
-          placeholder="Enter your todo item"
+          className='input-field'
+          type='text'
+          placeholder='Enter your todo item'
         ></input>
         <button>Add</button>
 
         <ul>
           {todos.map((item, index) => {
             return (
-              <div key={item} className="row">
+              <div key={item} className='row'>
                 <li>{item}</li>
                 <button>Delete</button>
               </div>
@@ -204,14 +204,14 @@ To add items, we need to keep track of what user typed in the input field.
 We can add a new state variable called `inputValue` and whenever input field value changes, we'll update the state.
 
 ```js
-const [inputValue, setInputValue] = useState('');
+const [inputValue, setInputValue] = useState("");
 ```
 
 ```js
 <input
-  className="input-field"
-  type="text"
-  placeholder="Enter your todo item"
+  className='input-field'
+  type='text'
+  placeholder='Enter your todo item'
   onChange={(e) => setInputValue(e.target.value)}
   value={inputValue}
 ></input>
@@ -222,7 +222,7 @@ Next, we'll create a function to handle add button click event. This function up
 ```js
 const handleAdd = () => {
   setTodos([...todos, inputValue]);
-  setInputValue('');
+  setInputValue("");
 };
 ```
 
@@ -246,7 +246,7 @@ The approach here is to remove the item by supplying its index so we can call th
 <ul>
   {todos.map((item, index) => {
     return (
-      <div key={item} className="row">
+      <div key={item} className='row'>
         <li>{item}</li>
         <button onClick={() => handleDelete(index)}>Delete</button>
       </div>
@@ -257,19 +257,19 @@ The approach here is to remove the item by supplying its index so we can call th
 
 ### Finally, we have this:
 
-<CodeFile children="App.js" />
+<CodeFile children='App.js' />
 
 ```js
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
   const handleAdd = (e) => {
     setTodos([...todos, inputValue]);
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleDelete = (index) => {
@@ -279,12 +279,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <div>
         <input
-          className="input-field"
-          type="text"
-          placeholder="Enter your todo item"
+          className='input-field'
+          type='text'
+          placeholder='Enter your todo item'
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
         ></input>
@@ -293,7 +293,7 @@ function App() {
         <ul>
           {todos.map((item, index) => {
             return (
-              <div key={item} className="row">
+              <div key={item} className='row'>
                 <li>{item}</li>
                 <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
@@ -332,7 +332,7 @@ LocalStorage stores data in a form of key-value pair and both need to be in stri
 We'll create two functions for retrieving and updating localstorage:
 
 ```js
-const TODO_KEY = 'todos';
+const TODO_KEY = "todos";
 
 const getLocalStorage = () => {
   const value = localStorage.getItem(TODO_KEY);
@@ -352,13 +352,13 @@ Likewise when updating todos, we will also update localstorage.
 
 ### Final Result:
 
-<CodeFile children="App.js" />
+<CodeFile children='App.js' />
 
 ```js
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-const TODO_KEY = 'todos';
+const TODO_KEY = "todos";
 
 const getLocalStorage = () => {
   const value = localStorage.getItem(TODO_KEY);
@@ -373,7 +373,7 @@ const updateLocalStorage = (todos) => {
 function App() {
   const previous_todos = getLocalStorage();
   const [todos, setTodos] = useState(previous_todos ? previous_todos : []);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const handleAdd = () => {
     // add only if input value is not empty
@@ -385,7 +385,7 @@ function App() {
       // update localStorage with new todos
       updateLocalStorage(new_todos);
       // clears input field
-      setInputValue('');
+      setInputValue("");
     }
   };
 
@@ -399,12 +399,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <div>
         <input
-          className="input-field"
-          type="text"
-          placeholder="Enter your todo item"
+          className='input-field'
+          type='text'
+          placeholder='Enter your todo item'
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
         ></input>
@@ -413,7 +413,7 @@ function App() {
         <ul>
           {todos.map((item, index) => {
             return (
-              <div key={item} className="row">
+              <div key={item} className='row'>
                 <li>{item}</li>
                 <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
