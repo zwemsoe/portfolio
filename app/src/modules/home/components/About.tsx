@@ -27,6 +27,7 @@ export function About() {
               alt="Me!"
               width={1000}
               height={1219}
+              priority
             />
           </Box>
         </Center>
