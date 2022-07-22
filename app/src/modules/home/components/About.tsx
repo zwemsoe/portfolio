@@ -1,8 +1,7 @@
-import { Heading, HStack, Stack, Text } from '@chakra-ui/react';
+import { Box, Center, Heading, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import { HOME_VIEW } from '@/constants';
 import { NextLink } from '@/modules/shared/components/NextLink';
-import myPic from '@/public/images/my-pic.png';
 import { ActionTypes } from '@/state/actions';
 import { useStateContext } from '@/state/provider';
 
@@ -17,21 +16,34 @@ export function About() {
         });
       }}
     >
-      <HStack spacing={{ base: 5, md: 10, lg: 20, xl: 50 }}>
-        <Image
-          src={myPic}
-          alt="Me!"
-          width={1500}
-          height={1500}
-          quality={100}
-          priority
-        />
-        <Stack>
-          <Heading size="xl" fontWeight="bold" color="light">
+      <Stack
+        direction={['column', 'row']}
+        spacing={{ base: 5, md: 10, lg: 20, xl: 50 }}
+      >
+        <Center>
+          <Box maxWidth={{ base: '45vw', md: '60vw' }}>
+            <Image
+              src="/images/my-pic.webp"
+              alt="Me!"
+              width={1000}
+              height={1219}
+            />
+          </Box>
+        </Center>
+        <Stack spacing={0}>
+          <Heading
+            size={{ sm: 'lg', md: 'xl' }}
+            fontWeight="bold"
+            color="light"
+          >
             ABOUT ME
           </Heading>
           <br />
-          <Heading size="2xl" fontWeight="bold" color="yellow">
+          <Heading
+            size={{ sm: 'lg', md: 'xl' }}
+            fontWeight="bold"
+            color="yellow"
+          >
             Hey there, I'm Zwe!
           </Heading>
           <br />
@@ -59,7 +71,7 @@ export function About() {
             and chess.
           </Text>
         </Stack>
-      </HStack>
+      </Stack>
     </span>
   );
 }
