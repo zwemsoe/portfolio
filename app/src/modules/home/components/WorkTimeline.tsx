@@ -10,20 +10,20 @@ import { Fragment } from 'react';
 
 const items = [
   {
-    date: 'March 2020',
-    title: 'Join BridgeBurma as Software Engineer Intern',
-  },
-  {
-    date: 'Jan 2021',
-    title: 'Promoted to Lead Software Engineer at BridgeBurma',
+    date: 'Jan 2021 - Present',
+    title: 'Lead Software Engineer at BridgeBurma',
   },
   {
     date: 'May 2021 - Sep 2021',
-    title: 'Join BYO as Full-Stack Software Developer',
+    title: 'Full-Stack Software Developer at BYO',
   },
   {
     date: 'Sep 2021 - Apr 2022',
-    title: 'Start Co-op at ATB Financial as Junior Software Developer',
+    title: 'Co-op at ATB Financial as Junior Software Developer',
+  },
+  {
+    date: 'Aug 2022 - Present',
+    title: 'Part-time Frontend Engineer position at Aquanow',
   },
 ];
 

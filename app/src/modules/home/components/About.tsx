@@ -54,8 +54,8 @@ export function About() {
             color="light"
           >
             I'm currently in Vancouver, Canada. I'm a 3rd-year computer science
-            student at Simon Fraser University. I have over a year experience of
-            working with ReactJS and NodeJS stacks. I'm working as a Lead
+            student at Simon Fraser University. I have over 2-years experience
+            of working with ReactJS and NodeJS stacks. I'm working as a Lead
             Software Engineer at{' '}
             <NextLink
               color="orange"
@@ -64,9 +64,9 @@ export function About() {
             >
               BridgeBurma
             </NextLink>{' '}
-            and a Full-Stack developer at{' '}
-            <NextLink color="orange" href="https://letsbyo.com/" isExternal>
-              BYO
+            and a part-time Frontend Engineer at{' '}
+            <NextLink color="orange" href="https://www.aquanow.io/" isExternal>
+              Aquanow
             </NextLink>{' '}
             . My interests include software development, clean-code, automation,
             and chess.
