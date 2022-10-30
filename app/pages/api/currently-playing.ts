@@ -15,6 +15,7 @@ export default async function handler(
           url: external_urls.spotify,
           name,
           artist: artists[0].name,
+          image: data.item.album.images[2].url,
         },
       });
     } else {

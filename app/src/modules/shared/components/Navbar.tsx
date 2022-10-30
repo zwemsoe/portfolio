@@ -112,15 +112,23 @@ const DesktopNav = () => {
 
         <Tooltip
           label={
-            <VStack alignItems="flex-start" spacing={0}>
+            <VStack alignItems="flex-start" spacing={1} margin={2}>
               <Text color="light" fontSize="sm">
                 {data?.track ? 'Listening to: ' : 'Not playing Spotify.'}
               </Text>
-              <Text color="yellow">
-                {data?.track
-                  ? `${data?.track.name} - ${data?.track.artist}`
-                  : ''}
-              </Text>
+              <HStack spacing={2}>
+                <Image
+                  src={data?.track.image}
+                  alt={data?.track.name}
+                  width={64}
+                  height={64}
+                />
+                <Text color="yellow">
+                  {data?.track
+                    ? `${data?.track.name} - ${data?.track.artist}`
+                    : ''}
+                </Text>
+              </HStack>
             </VStack>
           }
         >
