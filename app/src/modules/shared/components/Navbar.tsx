@@ -117,12 +117,14 @@ const DesktopNav = () => {
                 {data?.track ? 'Listening to: ' : 'Not playing Spotify.'}
               </Text>
               <HStack spacing={2}>
-                <Image
-                  src={data?.track.image}
-                  alt={data?.track.name}
-                  width={64}
-                  height={64}
-                />
+                {data?.track && (
+                  <Image
+                    src={data?.track.image}
+                    alt={data?.track.name}
+                    width={64}
+                    height={64}
+                  />
+                )}
                 <Text color="yellow">
                   {data?.track
                     ? `${data?.track.name} - ${data?.track.artist}`
