@@ -1,3 +1,3 @@
-# Portfolio/Blog Website
+# zsoe.dev
 
-[https://www.zweminsoe.com](https://www.zweminsoe.com)
+[zsoe.dev](https://zsoe.dev)
