@@ -26,7 +26,7 @@ export function Navbar({
   const { theme } = useTheme();
 
   return (
-    <nav className='flex items-center justify-evenly p-4'>
+    <nav className='flex items-center justify-between p-4'>
       <div className='flex'>
         <Image
           src={theme === "light" ? "/logo-b.png" : "/logo-w.png"}
@@ -39,12 +39,12 @@ export function Navbar({
       </div>
 
       <ul className='flex space-x-4 items-center'>
-        <li>
+        {/* <li>
           <a href='#'>Work</a>
         </li>
         <li>
           <a href=''>Resume</a>
-        </li>
+        </li> */}
         <ModeToggle />
         {track ? (
           <TooltipProvider>
